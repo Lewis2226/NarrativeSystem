@@ -9,11 +9,13 @@ public class HeroOrVillain : MonoBehaviour
    [SerializeField] private int GoodPoints;
    [SerializeField] private int BadPoints;
    [SerializeField] private string EventChoosen;
+    private Aftermath aftermath;
 
     void Start()
     {
         PlayerState = States.playerStates.Neutral;
-
+        aftermath = GetComponent<Aftermath>();
+        Debug.Log(ShowNarrative());
     }
 
     public void SetState(States.playerStates NewState)
@@ -50,58 +52,11 @@ public class HeroOrVillain : MonoBehaviour
         }
    }
 
-   public string ShowNarrative(int NumberEvent)
+   public string ShowNarrative()
    {
-        string EventChoosen;
-        string EventToShow;
-        switch(NumberEvent)
-        {
-            case 0:
-                if(PlayerState == States.playerStates.Good)
-                {
-                    EventChoosen = "Hola, que hace?";
-                    
-                }
-                else
-                {
-                    EventChoosen = "No me hables";
-                    
-                }
-                EventToShow = EventChoosen;
-                break;
-
-            case 1:
-                if (PlayerState == States.playerStates.Good)
-                {
-                    EventChoosen = "No puede ser";
-                    
-                }
-                else
-                {
-                    EventChoosen = "Alejate , por favor";
-                    
-                }
-                EventToShow = EventChoosen;
-                break;
-
-            case 2:
-                if (PlayerState == States.playerStates.Good)
-                {
-                    EventChoosen = "Adios";
-                    
-                }
-                else
-                {
-                    EventChoosen = "Largo de aqui";
-                    
-                }
-                EventToShow = EventChoosen;
-                break;
-
-            default:
-                EventToShow = "No existe ese evento";
-                break;
-        }
+        
+        string EventToShow = aftermath.ShowNarrativeDialogue(2,PlayerState);
+       
 
         return "Se eligió este evento " + EventToShow;
     }
