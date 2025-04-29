@@ -13,6 +13,8 @@ public class Aftermath : MonoBehaviour
     void Start()
     {
         dialogueManager = GetComponent<DialogueManager>();
+        dialogueManager.ReadCSV();
+        ShowNarrativeDialogue(1, States.playerStates.Good);
     }
 
     public void SetNarrativeLevel(int level)
@@ -27,56 +29,8 @@ public class Aftermath : MonoBehaviour
 
     public string ShowNarrativeDialogue(int level, States.playerStates NarrativeType)
     {
-        string DialogueChoosen;
-        switch (level)
-        {
-            case 0:
-                if (NarrativeType == States.playerStates.Good)
-                {
-                    DialogueChoosen = "Hola, que hace?";
-
-                }
-                else
-                {
-                    DialogueChoosen = "No me hables";
-
-                }
-                NarrativeDialogue = DialogueChoosen;
-                break;
-
-            case 1:
-                if (NarrativeType == States.playerStates.Good)
-                {
-                    DialogueChoosen = "No puede ser";
-
-                }
-                else
-                {
-                    DialogueChoosen = "Alejate , por favor";
-
-                }
-                NarrativeDialogue = DialogueChoosen;
-                break;
-
-            case 2:
-                if (NarrativeType == States.playerStates.Good)
-                {
-                    DialogueChoosen = "Adios";
-
-                }
-                else
-                {
-                    DialogueChoosen = "Largo de aqui";
-
-                }
-                NarrativeDialogue = DialogueChoosen;
-                break;
-
-            default:
-                NarrativeDialogue = "No existe ese evento";
-                break;
-        }
-
+        NarrativeDialogue = dialogueManager.ShowDialogue(level, NarrativeType);
+        Debug.Log(NarrativeDialogue);
         return NarrativeDialogue;
     }
 }

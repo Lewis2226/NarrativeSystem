@@ -22,9 +22,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ReadCSV();
-        ShowDialogue(1, States.playerStates.Good);
-        ShowDialogue(2, States.playerStates.Bad);
+        
 
     }
 
@@ -72,10 +70,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void ShowDialogue(int dialogueId, States.playerStates dialogueType)
+    public string ShowDialogue(int dialogueId, States.playerStates dialogueType)
     {
         string dialogueToShow = GetDialogue(dialogueId, dialogueType);
         Debug.Log("Diálogo: " + dialogueToShow);
+        return dialogueToShow;
     }
 
 }
