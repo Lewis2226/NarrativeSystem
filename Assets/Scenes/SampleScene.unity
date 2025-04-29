@@ -132,8 +132,9 @@ GameObject:
   m_Component:
   - component: {fileID: 382401973}
   - component: {fileID: 382401972}
-  - component: {fileID: 382401971}
   - component: {fileID: 382401974}
+  - component: {fileID: 382401971}
+  - component: {fileID: 382401975}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -161,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382401970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d69904f2a636e04cb1788dc7ae7dae9, type: 3}
   m_Name: 
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382401970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c644d899bcaf804eacee5a0f9c365e4, type: 3}
   m_Name: 
@@ -200,6 +201,20 @@ MonoBehaviour:
   PlayerStatus: 0
   HistoryLevel: 2
   NarrativeDialogue: 
+--- !u!114 &382401975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382401970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f38e2ad8b7dca4caa754212753a0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dialogues: {fileID: 4900000, guid: 377dd3a26547c9f41aa4421ffb8a4f74, type: 3}
+  dialoguesHistory: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

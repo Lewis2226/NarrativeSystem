@@ -54,10 +54,7 @@ public class HeroOrVillain : MonoBehaviour
 
    public string ShowNarrative()
    {
-        
         string EventToShow = aftermath.ShowNarrativeDialogue(2,PlayerState);
-       
-
         return "Se eligió este evento " + EventToShow;
-    }
+   }
 }

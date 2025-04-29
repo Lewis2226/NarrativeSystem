@@ -7,11 +7,12 @@ public class Aftermath : MonoBehaviour
     [SerializeField] private States.playerStates PlayerStatus;
     [SerializeField] private int HistoryLevel;
     [SerializeField] private string NarrativeDialogue;
+    private DialogueManager dialogueManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        dialogueManager = GetComponent<DialogueManager>();
     }
 
     public void SetNarrativeLevel(int level)
@@ -79,3 +80,4 @@ public class Aftermath : MonoBehaviour
         return NarrativeDialogue;
     }
 }
+
