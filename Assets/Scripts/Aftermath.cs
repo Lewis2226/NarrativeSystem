@@ -8,12 +8,13 @@ public class Aftermath : MonoBehaviour
     [SerializeField] private int HistoryLevel;
     [SerializeField] private string NarrativeDialogue;
     private DialogueManager dialogueManager;
+    public TextAsset DialoguesNarrative;
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueManager = GetComponent<DialogueManager>();
-        dialogueManager.ReadCSV();
+        dialogueManager.ReadCSV(DialoguesNarrative, 1);
         ShowNarrativeDialogue(1, States.playerStates.Good);
     }
 
