@@ -24,10 +24,21 @@ public class DialogueManager : MonoBehaviour
         public string lieDialogue;
     }
 
+    [System.Serializable]
+    public class Dialogue
+    {
+        public int id;
+        public string StartDialogue;
+        public string MidDialogue;
+        public string EndDialogue;
+    }
+
     public TextAsset DialoguesNarrative;
     public TextAsset DialoguesInterration;
+    public TextAsset DialoguesNPCs;
     public List<HistoryDialogue> dialoguesHistory;
     public List<DialogueInterration> dialoguesInterration;
+    public List<Dialogue> dialoguesNPCs;
     
 
 
@@ -35,9 +46,16 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ReadCSV(DialoguesInterration, 2);
-        ShowDialogue(2, Action.playerActions.Save);
-
+        ReadCSV(DialoguesNPCs,3);
+        ShowDialogue(1);
+        ShowDialogue(1);
+        ShowDialogue(1);
+        ShowDialogue(2);
+        ShowDialogue(2);
+        ShowDialogue(2);
+        ShowDialogue(3);
+        ShowDialogue(3);
+        ShowDialogue(3);
     }
 
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)
@@ -59,11 +77,9 @@ public class DialogueManager : MonoBehaviour
 
                     dialoguesHistory.Add(dialogue);
                 }
-
-                Debug.Log("Se encontraron : " + dialoguesHistory.Count + " lineas de dialogo de narrativa");
                 break;
 
-                case 2: //Diálogos Interraciones
+               case 2: //Diálogos Interraciones
                 for (int i = 1; i < lines.Length; i++)
                 {
                     string line = lines[i];
@@ -77,11 +93,24 @@ public class DialogueManager : MonoBehaviour
                     dialogue.lieDialogue = data[4];
                     dialoguesInterration.Add(dialogue);
                 }
-                Debug.Log("Se encontraron : " + dialoguesInterration.Count + " lineas de dialogo de interraciones");
                 break;
 
+                case 3: //Diálogos NPCs
+                  for(int i = 1; i < lines.Length; i++)
+                  {
+                    string line = lines[i];
+                    if (string.IsNullOrEmpty(line)) continue;
+                    string[] data = line.Split(",");
+                    Dialogue dialogue = new Dialogue();
+                    dialogue.id= int.Parse(data[0]);
+                    dialogue.StartDialogue = data[1];
+                    dialogue.MidDialogue = data[2];
+                    dialogue.EndDialogue = data[3];
+                    dialoguesNPCs.Add(dialogue);
+                  }
+                break;
 
-            default: //No se reconoce el tipo de diálogos
+                default: //No se reconoce el tipo de diálogos
                 Debug.Log("No existe se tipo de dialogos");
                 break;
 
@@ -95,7 +124,6 @@ public class DialogueManager : MonoBehaviour
 
         if(dialogue == null)
         {
-            Debug.Log("No se encontro se diálogo con el " + id);
             return "";
         }
 
@@ -120,7 +148,7 @@ public class DialogueManager : MonoBehaviour
 
         if (id >=1 && id <= 5)
         {
-            Debug.Log("Primer nivel");
+            //Primer nivel
             dialogue = dialoguesInterration.Find(d => d.id == 1);
             switch (actionstype)
             {
@@ -144,7 +172,7 @@ public class DialogueManager : MonoBehaviour
 
         else if (id > 5 && id <=10 )
         {
-            Debug.Log("Segundo nivel nivel");
+            //Segundo nivel
             dialogue = dialoguesInterration.Find(d => d.id == 10);
             switch (actionstype)
             {
@@ -168,7 +196,7 @@ public class DialogueManager : MonoBehaviour
 
         else if (id > 10 && id <= 15)
         {
-            Debug.Log("Tercer nivel");
+            //Tercer nivel
             dialogue = dialoguesInterration.Find(d => d.id == 15);
             switch (actionstype)
             {
@@ -192,7 +220,7 @@ public class DialogueManager : MonoBehaviour
 
         else if (id > 15 && id < 20 )
         {
-            Debug.Log("Cuarto nivel nivel");
+            //Cuarto nivel
             dialogue = dialoguesInterration.Find(d => d.id == 20);
             switch (actionstype)
             {
@@ -221,12 +249,38 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+
+    public string GetDialogue(int GameLevel)
+    {
+        int ramdonID = UnityEngine.Random.Range(1, dialoguesNPCs.Count);
+        Dialogue dialogue = dialoguesNPCs.Find(d => d.id == ramdonID);
+        Debug.Log(ramdonID);
+
+        switch (GameLevel) 
+        {
+            case 1: //dialogos del incio del juego
+                return  dialogue.StartDialogue;
+
+            case 2: //dialogos de la mitad del juego
+                return  dialogue.MidDialogue;
+                
+            case 3: //dialogos del final del juego
+                return dialogue.EndDialogue;
+
+            default:
+                Debug.Log("No se encuetro ese nivel del juego");
+                return "";
+        }
+    }
+
+
     public string ShowDialogue(int dialogueId, States.playerStates dialogueState) //Para dialogos narrativos
     {
         string dialogueToShow = GetDialogueNarratve(dialogueId, dialogueState);
         Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
     }
+
 
     public string ShowDialogue(int level, Action.playerActions actionType)
     {
@@ -235,4 +289,11 @@ public class DialogueManager : MonoBehaviour
         return dialogueToShow;
     }
 
+
+    public string ShowDialogue(int GameLevel) 
+    {
+        string dialogueToShow = GetDialogue(GameLevel);
+        Debug.Log("Diálogo: " + dialogueToShow);
+        return dialogueToShow;
+    }
 }
