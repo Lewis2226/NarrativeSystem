@@ -13,10 +13,11 @@ public class Interactions : MonoBehaviour
 
     void Start()
     {
+        dialogueManager = GetComponent<DialogueManager>();
         dialogueManager.ReadCSV(InteractionDialogue, 2);
-        dialogueManager.ShowDialogue(1, actionUse);
         SetAction(Action.playerActions.Kill);
-        Debug.Log($"El jugador uso la accion de {actionUse}");
+        dialogueManager.ShowDialogue(1, actionUse);
+        
     }
 
     public void SetAction(Action.playerActions action)

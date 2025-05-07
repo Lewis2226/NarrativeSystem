@@ -3,39 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[System.Serializable]
+public class HistoryDialogue
+{
+    public int id;
+    public string goodDialogue;
+    public string badDialogue;
+}
+
+[System.Serializable]
+public class DialogueInterration
+{
+    public int id;
+    public string saveDialogue;
+    public string truthDialogue;
+    public string killDialogue;
+    public string lieDialogue;
+}
+
+[System.Serializable]
+public class Dialogue
+{
+    public int id;
+    public string StartDialogue;
+    public string MidDialogue;
+    public string EndDialogue;
+}
 
 public class DialogueManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class HistoryDialogue
-    {
-        public int id;
-        public string goodDialogue;
-        public string badDialogue;
-    }
-
-    [System.Serializable]
-    public class DialogueInterration
-    {
-        public int id;
-        public string saveDialogue;
-        public string truthDialogue;
-        public string killDialogue;
-        public string lieDialogue;
-    }
-
-    [System.Serializable]
-    public class Dialogue
-    {
-        public int id;
-        public string StartDialogue;
-        public string MidDialogue;
-        public string EndDialogue;
-    }
-
-    public TextAsset DialoguesNarrative;
-    public TextAsset DialoguesInterration;
-    public TextAsset DialoguesNPCs;
     public List<HistoryDialogue> dialoguesHistory;
     public List<DialogueInterration> dialoguesInterration;
     public List<Dialogue> dialoguesNPCs;
@@ -43,16 +39,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ReadCSV(DialoguesNPCs,3);
-        ShowDialogue(1);
-        ShowDialogue(1);
-        ShowDialogue(1);
-        ShowDialogue(2);
-        ShowDialogue(2);
-        ShowDialogue(2);
-        ShowDialogue(3);
-        ShowDialogue(3);
-        ShowDialogue(3);
+      
     }
 
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)
@@ -71,8 +58,8 @@ public class DialogueManager : MonoBehaviour
                     dialogue.id = int.Parse(data[0]);
                     dialogue.goodDialogue = data[1];
                     dialogue.badDialogue = data[2];
-
                     dialoguesHistory.Add(dialogue);
+
                 }
                 break;
 
@@ -89,6 +76,8 @@ public class DialogueManager : MonoBehaviour
                     dialogue.killDialogue = data[3];
                     dialogue.lieDialogue = data[4];
                     dialoguesInterration.Add(dialogue);
+
+                    
                 }
                 break;
 
@@ -114,6 +103,12 @@ public class DialogueManager : MonoBehaviour
         }
        
     }
+
+   /* public List<DialogueInterration> GetDialogueInterrationsList()
+    {
+        return dialoguesInterration;
+    }
+   */
 
     public string GetDialogueNarratve(int id, States.playerStates Statetypes)
     {
