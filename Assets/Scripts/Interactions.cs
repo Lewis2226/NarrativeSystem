@@ -6,16 +6,26 @@ public class Interactions : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Action.playerActions ActionUse; 
+    public Action.playerActions actionUse;
+    private States.playerStates playerState;
+    public TextAsset InteractionDialogue;
+    private DialogueManager dialogueManager;
+
     void Start()
     {
-        ActionUse = Action.playerActions.Kill;
-        Debug.Log($"El jugador uso la accion de  {ActionUse}");
+        dialogueManager.ReadCSV(InteractionDialogue, 2);
+        dialogueManager.ShowDialogue(1, actionUse);
+        SetAction(Action.playerActions.Kill);
+        Debug.Log($"El jugador uso la accion de {actionUse}");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetAction(Action.playerActions action)
     {
-        
+        actionUse = action;
+    }
+
+    public void SetPlayerState(States.playerStates state)
+    {
+        playerState = state;
     }
 }

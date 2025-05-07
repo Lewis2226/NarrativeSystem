@@ -40,9 +40,6 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueInterration> dialoguesInterration;
     public List<Dialogue> dialoguesNPCs;
     
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -282,7 +279,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public string ShowDialogue(int level, Action.playerActions actionType)
+    public string ShowDialogue(int level, Action.playerActions actionType) //Para dialogos de interraciones
     {
         string dialogueToShow = GetDialogueInterration(level, actionType);
         Debug.Log("Diálogo: " + dialogueToShow);
@@ -290,7 +287,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public string ShowDialogue(int GameLevel) 
+    public string ShowDialogue(int GameLevel) //Para dialogos los NPCs
     {
         string dialogueToShow = GetDialogue(GameLevel);
         Debug.Log("Diálogo: " + dialogueToShow);
