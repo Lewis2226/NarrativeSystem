@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 [System.Serializable]
 public class HistoryDialogue
@@ -35,7 +36,14 @@ public class DialogueManager : MonoBehaviour
     public List<HistoryDialogue> dialoguesHistory;
     public List<DialogueInteraction> dialoguesInteraction;
     public List<Dialogue> dialoguesNPCs;
-    
+    public TextAsset dialogues;
+    public TextMeshProUGUI textDialogue;
+
+    private void Start()
+    {
+        ReadCSV(dialogues, 2);
+        textDialogue.text ="<b><s>" + ShowDialogue(10, Action.playerActions.Save);
+    }
 
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)
     {
