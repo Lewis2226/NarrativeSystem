@@ -12,7 +12,7 @@ public class HistoryDialogue
 }
 
 [System.Serializable]
-public class DialogueInterration
+public class DialogueInteraction
 {
     public int id;
     public string saveDialogue;
@@ -33,14 +33,9 @@ public class Dialogue
 public class DialogueManager : MonoBehaviour
 {
     public List<HistoryDialogue> dialoguesHistory;
-    public List<DialogueInterration> dialoguesInterration;
+    public List<DialogueInteraction> dialoguesInteraction;
     public List<Dialogue> dialoguesNPCs;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-    }
 
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)
     {
@@ -69,13 +64,13 @@ public class DialogueManager : MonoBehaviour
                     string line = lines[i];
                     if (string.IsNullOrEmpty(line)) continue;
                     string[] data = line.Split(',');
-                    DialogueInterration dialogue = new DialogueInterration();
+                    DialogueInteraction dialogue = new DialogueInteraction();
                     dialogue.id = int.Parse(data[0]);
                     dialogue.saveDialogue = data[1];
                     dialogue.truthDialogue = data[2];
                     dialogue.killDialogue = data[3];
                     dialogue.lieDialogue = data[4];
-                    dialoguesInterration.Add(dialogue);
+                    dialoguesInteraction.Add(dialogue);
 
                     
                 }
@@ -106,7 +101,7 @@ public class DialogueManager : MonoBehaviour
 
    /* public List<DialogueInterration> GetDialogueInterrationsList()
     {
-        return dialoguesInterration;
+        return dialoguesInterration; tengo que ver si puedo usar esto 
     }
    */
 
@@ -134,14 +129,14 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public string GetDialogueInterration(int id, Action.playerActions actionstype)
+    public string GetDialogueInteraction(int id, Action.playerActions actionstype)
     {
-        DialogueInterration dialogue;
+        DialogueInteraction dialogue;
 
         if (id >=1 && id <= 5)
         {
             //Primer nivel
-            dialogue = dialoguesInterration.Find(d => d.id == 1);
+            dialogue = dialoguesInteraction.Find(d => d.id == 1);
             switch (actionstype)
             {
                 case Action.playerActions.Save:
@@ -165,7 +160,7 @@ public class DialogueManager : MonoBehaviour
         else if (id > 5 && id <=10 )
         {
             //Segundo nivel
-            dialogue = dialoguesInterration.Find(d => d.id == 10);
+            dialogue = dialoguesInteraction.Find(d => d.id == 10);
             switch (actionstype)
             {
                 case Action.playerActions.Save:
@@ -189,7 +184,7 @@ public class DialogueManager : MonoBehaviour
         else if (id > 10 && id <= 15)
         {
             //Tercer nivel
-            dialogue = dialoguesInterration.Find(d => d.id == 15);
+            dialogue = dialoguesInteraction.Find(d => d.id == 15);
             switch (actionstype)
             {
                 case Action.playerActions.Save:
@@ -213,7 +208,7 @@ public class DialogueManager : MonoBehaviour
         else if (id > 15 && id < 20 )
         {
             //Cuarto nivel
-            dialogue = dialoguesInterration.Find(d => d.id == 20);
+            dialogue = dialoguesInteraction.Find(d => d.id == 20);
             switch (actionstype)
             {
                 case Action.playerActions.Save:
@@ -276,7 +271,7 @@ public class DialogueManager : MonoBehaviour
 
     public string ShowDialogue(int level, Action.playerActions actionType) //Para dialogos de interraciones
     {
-        string dialogueToShow = GetDialogueInterration(level, actionType);
+        string dialogueToShow = GetDialogueInteraction(level, actionType);
         Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
     }
