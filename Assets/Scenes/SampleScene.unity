@@ -400,7 +400,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382401970}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61f38e2ad8b7dca4caa754212753a0b3, type: 3}
   m_Name: 
@@ -408,6 +408,8 @@ MonoBehaviour:
   dialoguesHistory: []
   dialoguesInteraction: []
   dialoguesNPCs: []
+  dialogues: {fileID: 4900000, guid: 246652b88f85d114d8ba868e9156a633, type: 3}
+  textDialogue: {fileID: 699665079}
 --- !u!114 &382401976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +417,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382401970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db1c87497c35a649bbf2d80125dd85a, type: 3}
   m_Name: 
@@ -631,7 +633,7 @@ GameObject:
   - component: {fileID: 699665080}
   - component: {fileID: 699665079}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
