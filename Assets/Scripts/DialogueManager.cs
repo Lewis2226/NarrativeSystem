@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using TMPro;
 
 [System.Serializable]
@@ -36,13 +34,19 @@ public class DialogueManager : MonoBehaviour
     public List<HistoryDialogue> dialoguesHistory;
     public List<DialogueInteraction> dialoguesInteraction;
     public List<Dialogue> dialoguesNPCs;
-    public TextAsset dialogues;
+    public TextAsset dialoguesHeroOrVillan;
+    public TextAsset dialoguesInterations;
+    public TextAsset dialoguesNPcs;
     public TextMeshProUGUI textDialogue;
+    public TextMeshProUGUI textDialogueNPC;
 
     private void Start()
     {
-        ReadCSV(dialogues, 2);
-        textDialogue.text ="<b><s>" + ShowDialogue(10, Action.playerActions.Save);
+        ReadCSV(dialoguesHeroOrVillan, 1);
+        ReadCSV(dialoguesInterations, 2);
+        ReadCSV(dialoguesNPcs, 3);
+
+        textDialogueNPC.text = ShowDialogue(1);
     }
 
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)
@@ -247,7 +251,7 @@ public class DialogueManager : MonoBehaviour
 
     public string GetDialogue(int GameLevel)
     {
-        int ramdonID = UnityEngine.Random.Range(1, dialoguesNPCs.Count);
+        int ramdonID = Random.Range(1, dialoguesNPCs.Count);
         Dialogue dialogue = dialoguesNPCs.Find(d => d.id == ramdonID);
         Debug.Log(ramdonID);
 
@@ -290,5 +294,34 @@ public class DialogueManager : MonoBehaviour
         string dialogueToShow = GetDialogue(GameLevel);
         Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
+    }
+
+    public void ShowHD()
+    {
+        textDialogue.text= ShowDialogue(1, States.playerStates.Good);
+    }
+
+    public void ShowVD()
+    {
+       textDialogue.text = ShowDialogue(1, States.playerStates.Bad);
+    }
+
+    public void ShowSD()
+    {
+       textDialogue.text = ShowDialogue(2, Action.playerActions.Save);
+    }
+    public void ShowTD() 
+    {
+       textDialogue.text = ShowDialogue(2, Action.playerActions.Truth);
+    }
+
+    public void ShowKD()
+    {
+       textDialogue.text = ShowDialogue(2, Action.playerActions.Kill);
+    }
+
+    public void ShowLD()
+    {
+       textDialogue.text = ShowDialogue(2, Action.playerActions.Lie);
     }
 }
