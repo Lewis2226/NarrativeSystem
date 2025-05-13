@@ -298,12 +298,12 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowHD()
     {
-        textDialogue.text= ShowDialogue(1, States.playerStates.Good);
+        textDialogue.text= ShowDialogue(7, States.playerStates.Good);
     }
 
     public void ShowVD()
     {
-       textDialogue.text = ShowDialogue(1, States.playerStates.Bad);
+       textDialogue.text = ShowDialogue(7, States.playerStates.Bad);
     }
 
     public void ShowSD()
