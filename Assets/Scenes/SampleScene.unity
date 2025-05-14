@@ -420,7 +420,7 @@ MonoBehaviour:
   dialoguesHistory: []
   dialoguesInteraction: []
   dialoguesNPCs: []
-  dialoguesHeroOrVillan: {fileID: 4900000, guid: 377dd3a26547c9f41aa4421ffb8a4f74, type: 3}
+  dialoguesHeroOrVillan: {fileID: 4900000, guid: c330b7a50d1253b4ebc77e67c84fcdfd, type: 3}
   dialoguesInterations: {fileID: 4900000, guid: 246652b88f85d114d8ba868e9156a633, type: 3}
   dialoguesNPcs: {fileID: 4900000, guid: 822624ecddafd9a4481fe6b47692d1cd, type: 3}
   textDialogue: {fileID: 699665079}
@@ -3189,7 +3189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Decidir la verdad
+  m_text: Decir la verdad
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
