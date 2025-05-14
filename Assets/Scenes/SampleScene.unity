@@ -420,7 +420,7 @@ MonoBehaviour:
   dialoguesHistory: []
   dialoguesInteraction: []
   dialoguesNPCs: []
-  dialoguesHeroOrVillan: {fileID: 4900000, guid: cfcbe581e84169441a192f0b6a425275, type: 3}
+  dialoguesHeroOrVillan: {fileID: 4900000, guid: 377dd3a26547c9f41aa4421ffb8a4f74, type: 3}
   dialoguesInterations: {fileID: 4900000, guid: 246652b88f85d114d8ba868e9156a633, type: 3}
   dialoguesNPcs: {fileID: 4900000, guid: 822624ecddafd9a4481fe6b47692d1cd, type: 3}
   textDialogue: {fileID: 699665079}
