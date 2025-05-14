@@ -45,8 +45,6 @@ public class DialogueManager : MonoBehaviour
         ReadCSV(dialoguesHeroOrVillan, 1);
         ReadCSV(dialoguesInterations, 2);
         ReadCSV(dialoguesNPcs, 3);
-
-        textDialogueNPC.text = ShowDialogue(1);
     }
 
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)

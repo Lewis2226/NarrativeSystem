@@ -11,15 +11,38 @@ public class NarrativeManager : MonoBehaviour
     public int heroPointsTotal;
     public int villanPointsTotal;
     public int[] actionsPointsTotal = new int[5];
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangePlayerState(int heroPoints,int villanPoints,int level)
     {
-        
+        switch (level)
+        {
+            
+        }
+    }
+
+    public void ActiveEvent()
+    {
+
+    }
+
+    private void ChangeWorld()
+    {
+
+    }
+
+    void ShowHistoryDialogue()
+    {
+
+    }
+
+    void NPCDialogue()
+    {
+
     }
 }
