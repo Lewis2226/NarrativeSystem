@@ -22,7 +22,141 @@ public class NarrativeManager : MonoBehaviour
     {
         switch (level)
         {
-            
+            case 1: 
+                if(heroPoints > villanPoints && heroPoints >= 10)
+                {
+                    playerStates = States.playerStates.Good;
+                    heroPointsTotal = 5;
+                    villanPointsTotal = 0;
+                    Debug.Log("Se termino el primer capítulo como heróe");
+                }
+                else if(villanPoints >heroPoints && villanPoints >= 10 )
+                {
+                    playerStates = States.playerStates.Bad;
+                    villanPointsTotal = 5;
+                    heroPointsTotal = 0;
+                    Debug.Log("Se termino el primer capítulo como villano");
+                }    
+            break;
+
+            case 2:
+                if(heroPoints > villanPoints && heroPoints >= 20)
+                {
+                    playerStates = States.playerStates.Good;
+                    heroPointsTotal = 10;
+                    villanPointsTotal = 0;
+                    Debug.Log("Se termino el segundo capítulo como heróe");
+                }
+                else if(villanPoints> heroPoints && villanPoints >= 20)
+                {
+                    playerStates = States.playerStates.Bad;
+                    villanPointsTotal = 10;
+                    heroPointsTotal = 0;
+                    Debug.Log("Se termino el segundo capítulo como villano");
+                }
+            break;
+
+            case 3:
+                if (heroPoints > villanPoints && heroPoints >= 30)
+                {
+                    playerStates = States.playerStates.Good;
+                    heroPointsTotal = 15;
+                    villanPointsTotal = 0;
+                    Debug.Log("Se termino el tercer capítulo como heróe");
+                }
+                else if(villanPoints > heroPoints && villanPoints >= 30)
+                {
+                    playerStates = States.playerStates.Bad;
+                    villanPointsTotal = 15;
+                    heroPointsTotal = 0;
+                    Debug.Log("Se termino el tercer capítulo como villano");
+                }
+            break;
+
+            case 4:
+                if(heroPoints > villanPoints && heroPoints >= 40)
+                {
+                    playerStates = States.playerStates.Good;
+                    heroPointsTotal = 20;
+                    villanPointsTotal = 0;
+                    Debug.Log("Se termino el cuarto capítulo como heróe");
+                }
+                else if(villanPoints > heroPoints && villanPoints >= 40)
+                {
+                    playerStates = States.playerStates.Bad;
+                    villanPointsTotal =20;
+                    heroPointsTotal = 0;
+                    Debug.Log("Se termino el cuarto capítulo como villano");
+                }
+            break;
+
+            case 5:
+                if(heroPoints > villanPoints && heroPoints >= 50)
+                {
+                    playerStates = States.playerStates.Good;
+                    heroPointsTotal = 25;
+                    villanPointsTotal = 0;
+                    Debug.Log("Se termino el quinto capítulo como heróe");
+                }
+                else if(villanPoints > heroPoints && villanPoints >= 50)
+                {
+                    playerStates = States.playerStates.Bad;
+                    villanPointsTotal = 25;
+                    heroPointsTotal = 0;
+                    Debug.Log("Se termino el quinto capítulo como villano");
+                }
+            break;
+
+            case 6:
+                if(heroPoints > villanPoints && heroPoints >= 60)
+                {
+                    playerStates = States.playerStates.Good;
+                    heroPointsTotal = 30;
+                    villanPointsTotal = 0;
+                    Debug.Log("Se termino el sexto capítulo como heróe");
+                }
+                else if(villanPoints > heroPoints && villanPoints >=60)
+                {
+                    playerStates = States.playerStates.Bad;
+                    villanPointsTotal = 30;
+                    heroPointsTotal = 0;
+                    Debug.Log("Se termino el sexto capítulo como villano");
+                }
+            break;
+
+            case 7:
+                if(heroPoints > villanPoints && heroPoints >= 70)
+                {
+                    playerStates = States.playerStates.Good;
+                    heroPointsTotal = 35;
+                    villanPointsTotal = 0;
+                    Debug.Log("Se termino el septimo capítulo como heróe");
+                }
+                else if(villanPoints > heroPoints && villanPoints >= 70)
+                {
+                    playerStates = States.playerStates.Bad;
+                    villanPointsTotal = 35;
+                    heroPointsTotal = 0;
+                    Debug.Log("Se termino el septimo capítulo como villano");
+                }
+            break;
+
+            case 8:
+                if(heroPoints > villanPoints && heroPoints >= 80)
+                {
+                    playerStates = States.playerStates.Good;
+                    Debug.Log("Se termino el octavo capítulo como heróe");
+                }
+                else if(villanPoints > heroPoints && villanPoints >= 80)
+                {
+                    playerStates = States.playerStates.Bad;
+                    Debug.Log("Se termino el octavo capítulo como villano");
+                }
+            break;
+
+            default:
+                Debug.Log("No existe ese nivel narrativo");
+            break;
         }
     }
 
