@@ -15,7 +15,7 @@ public class NarrativeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ChangePlayerState(13, 5, 1);
     }
 
     public void ChangePlayerState(int heroPoints,int villanPoints,int level)

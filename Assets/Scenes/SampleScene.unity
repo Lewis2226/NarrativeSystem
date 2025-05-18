@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 382401971}
   - component: {fileID: 382401975}
   - component: {fileID: 382401976}
+  - component: {fileID: 382401977}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -438,6 +439,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreToGive: 0
+--- !u!114 &382401977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382401970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77f0b98a8247154388ad7b32684f2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  playerStates: 0
+  currentNarrativeLevel: 0
+  heroPointsTotal: 0
+  villanPointsTotal: 0
+  actionsPointsTotal: 0000000000000000000000000000000000000000
 --- !u!1 &390538993
 GameObject:
   m_ObjectHideFlags: 0
