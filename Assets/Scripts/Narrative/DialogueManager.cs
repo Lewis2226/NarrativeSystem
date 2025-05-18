@@ -251,7 +251,6 @@ public class DialogueManager : MonoBehaviour
     {
         int ramdonID = Random.Range(1, dialoguesNPCs.Count);
         Dialogue dialogue = dialoguesNPCs.Find(d => d.id == ramdonID);
-        Debug.Log(ramdonID);
 
         switch (GameLevel) 
         {

@@ -11,11 +11,16 @@ public class NarrativeManager : MonoBehaviour
     public int heroPointsTotal;
     public int villanPointsTotal;
     public int[] actionsPointsTotal = new int[5];
+    private DialogueManager dialogueManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        dialogueManager = GetComponent<DialogueManager>();
         ChangePlayerState(13, 5, 1);
+        ShowHistoryDialogue();
+        NPCsDialogue();
+        ChangeWorld(playerStates, 1);
     }
 
     public void ChangePlayerState(int heroPoints,int villanPoints,int level)
@@ -165,18 +170,36 @@ public class NarrativeManager : MonoBehaviour
 
     }
 
-    private void ChangeWorld()
+    private void ChangeWorld(States.playerStates playerState , int GameLevel)
     {
+        switch(GameLevel)
+        {
+            case 1:
+                if(playerState == States.playerStates.Good)
+                {
+                  Debug.Log("El mundo cambio por ser bueno");
+                }
+                else if(playerState == States.playerStates.Bad)
+                {
+                  Debug.Log("El mundo cambio por ser malo");
+                }
+            break;
 
+            default:
+                Debug.Log("No se encuentra ese nivel Narrativo");
+            break;      
+
+
+        }
     }
 
     void ShowHistoryDialogue()
     {
-
+         dialogueManager.ShowDialogue(1, playerStates);
     }
 
-    void NPCDialogue()
+    void NPCsDialogue()
     {
-
+        dialogueManager.ShowDialogue(1);
     }
 }
