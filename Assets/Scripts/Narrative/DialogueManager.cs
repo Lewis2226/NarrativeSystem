@@ -39,6 +39,8 @@ public class DialogueManager : MonoBehaviour
     public TextAsset dialoguesNPcs;
     public TextMeshProUGUI textDialogue;
     public TextMeshProUGUI textDialogueNPC;
+    public GameObject goodIcon;
+    public GameObject badIcon;
 
     private void Start()
     {
@@ -273,7 +275,7 @@ public class DialogueManager : MonoBehaviour
     public string ShowDialogue(int dialogueId, States.playerStates dialogueState) //Para dialogos narrativos
     {
         string dialogueToShow = GetDialogueNarratve(dialogueId, dialogueState);
-        Debug.Log("Diálogo: " + dialogueToShow);
+        //Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
     }
 
@@ -281,7 +283,7 @@ public class DialogueManager : MonoBehaviour
     public string ShowDialogue(int level, Action.playerActions actionType) //Para dialogos de interraciones
     {
         string dialogueToShow = GetDialogueInteraction(level, actionType);
-        Debug.Log("Diálogo: " + dialogueToShow);
+        //Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
     }
 
@@ -289,18 +291,36 @@ public class DialogueManager : MonoBehaviour
     public string ShowDialogue(int GameLevel) //Para dialogos los NPCs
     {
         string dialogueToShow = GetDialogue(GameLevel);
-        Debug.Log("Diálogo: " + dialogueToShow);
+        //Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
+    }
+
+    public void ShowIcon(States.playerStates Status)
+    {
+
+        goodIcon.SetActive(false);
+        badIcon.SetActive(false);
+        if(Status == States.playerStates.Good)
+        {
+            goodIcon.SetActive(true);
+        }
+
+        else if (Status == States.playerStates.Bad)
+        {
+            badIcon.SetActive(true);
+        }
     }
 
     public void ShowHD()
     {
         textDialogue.text= ShowDialogue(7, States.playerStates.Good);
+        ShowIcon(States.playerStates.Good);
     }
 
     public void ShowVD()
     {
        textDialogue.text = ShowDialogue(7, States.playerStates.Bad);
+        ShowIcon(States.playerStates.Bad);
     }
 
     public void ShowSD()

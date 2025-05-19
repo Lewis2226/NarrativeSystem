@@ -16,8 +16,11 @@ public class NarrativeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         dialogueManager = GetComponent<DialogueManager>();
         ChangePlayerState(13, 5, 1);
+        //playerStates = States.playerStates.Bad;
+        Debug.Log(playerStates);
         ShowHistoryDialogue();
         NPCsDialogue();
         ChangeWorld(playerStates, 1);
@@ -196,6 +199,7 @@ public class NarrativeManager : MonoBehaviour
     void ShowHistoryDialogue()
     {
          dialogueManager.ShowDialogue(1, playerStates);
+        // dialogueManager.ShowIcon(playerStates);
     }
 
     void NPCsDialogue()

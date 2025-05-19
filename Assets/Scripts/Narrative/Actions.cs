@@ -11,6 +11,7 @@ public class Actions : MonoBehaviour
     void Start()
     {
         SetScore(5, Action.playerActions.Kill, States.playerStates.Bad);
+        SetScore(5, Action.playerActions.Kill, States.playerStates.Good);
         print(scoreToGive);
     }
 
