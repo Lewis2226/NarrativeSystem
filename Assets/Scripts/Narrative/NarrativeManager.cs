@@ -168,7 +168,7 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    public void ActiveEvent()
+    public void ActiveEvent(int savepoints, int truthpoints, int killpoints)
     {
 
     }
@@ -199,7 +199,7 @@ public class NarrativeManager : MonoBehaviour
     void ShowHistoryDialogue()
     {
          dialogueManager.ShowDialogue(1, playerStates);
-        // dialogueManager.ShowIcon(playerStates);
+        //dialogueManager.ShowIcon(playerStates);
     }
 
     void NPCsDialogue()
