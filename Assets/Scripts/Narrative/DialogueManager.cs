@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class HistoryDialogue
@@ -39,8 +40,8 @@ public class DialogueManager : MonoBehaviour
     public TextAsset dialoguesNPcs;
     public TextMeshProUGUI textDialogue;
     public TextMeshProUGUI textDialogueNPC;
-    public GameObject goodIcon;
-    public GameObject badIcon;
+    [SerializeField]  public Image StatusIcon;
+    public GameObject ActionsIcon;
 
     private void Start()
     {
@@ -298,16 +299,15 @@ public class DialogueManager : MonoBehaviour
     public void ShowIcon(States.playerStates Status)
     {
 
-        goodIcon.SetActive(false);
-        badIcon.SetActive(false);
-        if(Status == States.playerStates.Good)
+        
+        if (Status == States.playerStates.Good)
         {
-            goodIcon.SetActive(true);
+            StatusIcon.color = Color.blue; 
         }
 
         else if (Status == States.playerStates.Bad)
         {
-            badIcon.SetActive(true);
+            StatusIcon.color= Color.red;
         }
     }
 
@@ -319,7 +319,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowVD()
     {
-       textDialogue.text = ShowDialogue(7, States.playerStates.Bad);
+        textDialogue.text = ShowDialogue(7, States.playerStates.Bad);
         ShowIcon(States.playerStates.Bad);
     }
 
