@@ -163,15 +163,29 @@ public class NarrativeManager : MonoBehaviour
             break;
 
             default:
-                Debug.Log("No existe ese nivel narrativo");
+            Debug.Log("No existe ese nivel narrativo");
             break;
         }
     }
 
-    public void ActiveEvent(int savepoints, int truthpoints, int killpoints)
+    public void ActiveEvent(int savepoints, int truthpoints, int killpoints, int liepoints, Event.gameEvents EventToSelect)
     {
+        switch (EventToSelect)
+        {
+            case Event.gameEvents.Dialogue:
+            break;
 
+            case Event.gameEvents.Submission:
+            break;
+
+            default:
+                Debug.Log("No se reconoce ese evento");
+            break;
+
+        }
     }
+
+   
 
     private void ChangeWorld(States.playerStates playerState , int GameLevel)
     {
