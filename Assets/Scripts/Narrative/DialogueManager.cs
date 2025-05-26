@@ -40,8 +40,9 @@ public class DialogueManager : MonoBehaviour
     public TextAsset dialoguesNPcs;
     public TextMeshProUGUI textDialogue;
     public TextMeshProUGUI textDialogueNPC;
-    [SerializeField]  public Image StatusIcon;
-    public GameObject ActionsIcon;
+    public Image StatusIcon;
+    public Image ActionsIcon;
+    public Color[] actionscolors = new Color[4]; 
 
     private void Start()
     {
@@ -308,6 +309,32 @@ public class DialogueManager : MonoBehaviour
         else if (Status == States.playerStates.Bad)
         {
             StatusIcon.color= Color.red;
+        }
+    }
+
+    public void ShowIcon(Action.playerActions ActionUse)
+    {
+        switch (ActionUse)
+        {
+            case Action.playerActions.Save:
+                ActionsIcon.color = actionscolors[0]; 
+            break;
+
+            case Action.playerActions.Truth:
+            ActionsIcon.color = actionscolors[1];
+            break;
+
+            case Action.playerActions.Kill:
+            ActionsIcon.color = actionscolors[2];
+            break;
+
+            case Action.playerActions.Lie:
+            ActionsIcon.color = actionscolors[3];
+            break;
+
+            default:
+                Debug.Log("No se recnonce esa acción");
+            break;
         }
     }
 
