@@ -300,7 +300,7 @@ public class DialogueManager : MonoBehaviour
     public void ShowIcon(States.playerStates Status)
     {
 
-        
+        StatusIcon.gameObject.SetActive(true);
         if (Status == States.playerStates.Good)
         {
             StatusIcon.color = Color.blue; 
@@ -310,10 +310,12 @@ public class DialogueManager : MonoBehaviour
         {
             StatusIcon.color= Color.red;
         }
+        Invoke("HideIcons", 4);
     }
 
     public void ShowIcon(Action.playerActions ActionUse)
     {
+        ActionsIcon.gameObject.SetActive(true);
         switch (ActionUse)
         {
             case Action.playerActions.Save:
@@ -336,6 +338,13 @@ public class DialogueManager : MonoBehaviour
                 Debug.Log("No se recnonce esa acción");
             break;
         }
+        Invoke("HideIcons", 4);
+    }
+
+    private void HideIcons()
+    {
+        StatusIcon.gameObject.SetActive(false);
+        ActionsIcon.gameObject.SetActive(false);
     }
 
     public void ShowHD()
