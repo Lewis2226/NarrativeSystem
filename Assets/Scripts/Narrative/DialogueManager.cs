@@ -353,19 +353,23 @@ public class DialogueManager : MonoBehaviour
     public void ShowSD()
     {
        textDialogue.text = ShowDialogue(2, Action.playerActions.Save);
+       ShowIcon(Action.playerActions.Save);
     }
     public void ShowTD() 
     {
        textDialogue.text = ShowDialogue(2, Action.playerActions.Truth);
+       ShowIcon(Action.playerActions.Truth);
     }
 
     public void ShowKD()
     {
        textDialogue.text = ShowDialogue(2, Action.playerActions.Kill);
+       ShowIcon(Action.playerActions.Kill);
     }
 
     public void ShowLD()
     {
        textDialogue.text = ShowDialogue(2, Action.playerActions.Lie);
+       ShowIcon(Action.playerActions.Lie);
     }
 }
