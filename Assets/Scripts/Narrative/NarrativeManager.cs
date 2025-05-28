@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NarrativeManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class NarrativeManager : MonoBehaviour
     public int villanPointsTotal;
     public int[] actionsPointsTotal = new int[5];
     private DialogueManager dialogueManager;
+    public Color[] actionscolors = new Color[4];
+    public Image StatusIcon;
+    public Image ActionsIcon;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -173,9 +178,11 @@ public class NarrativeManager : MonoBehaviour
         switch (EventToSelect)
         {
             case Event.gameEvents.Dialogue:
+                Debug.Log("Se mostro un dialogo");
             break;
 
             case Event.gameEvents.Submission:
+                Debug.Log("Se dio una submission");
             break;
 
             default:
@@ -185,7 +192,6 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-   
 
     private void ChangeWorld(States.playerStates playerState , int GameLevel)
     {
@@ -212,12 +218,62 @@ public class NarrativeManager : MonoBehaviour
 
     void ShowHistoryDialogue()
     {
-         dialogueManager.ShowDialogue(1, playerStates);
-        //dialogueManager.ShowIcon(playerStates);
+        dialogueManager.ShowDialogue(1, playerStates);
+        ShowIcon(playerStates);
     }
 
     void NPCsDialogue()
     {
         dialogueManager.ShowDialogue(1);
+    }
+
+    public void ShowIcon(States.playerStates Status)
+    {
+
+        StatusIcon.gameObject.SetActive(true);
+        if (Status == States.playerStates.Good)
+        {
+            StatusIcon.color = Color.blue;
+        }
+
+        else if (Status == States.playerStates.Bad)
+        {
+            StatusIcon.color = Color.red;
+        }
+        Invoke("HideIcons", 4);
+    }
+
+    public void ShowIcon(Action.playerActions ActionUse)
+    {
+        ActionsIcon.gameObject.SetActive(true);
+        switch (ActionUse)
+        {
+            case Action.playerActions.Save:
+                ActionsIcon.color = actionscolors[0];
+                break;
+
+            case Action.playerActions.Truth:
+                ActionsIcon.color = actionscolors[1];
+                break;
+
+            case Action.playerActions.Kill:
+                ActionsIcon.color = actionscolors[2];
+                break;
+
+            case Action.playerActions.Lie:
+                ActionsIcon.color = actionscolors[3];
+                break;
+
+            default:
+                Debug.Log("No se recnonce esa acción");
+                break;
+        }
+        Invoke("HideIcons", 4);
+    }
+
+    private void HideIcons()
+    {
+        StatusIcon.gameObject.SetActive(false);
+        ActionsIcon.gameObject.SetActive(false);
     }
 }

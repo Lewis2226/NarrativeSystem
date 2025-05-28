@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+
 
 [System.Serializable]
 public class HistoryDialogue
@@ -40,9 +40,7 @@ public class DialogueManager : MonoBehaviour
     public TextAsset dialoguesNPcs;
     public TextMeshProUGUI textDialogue;
     public TextMeshProUGUI textDialogueNPC;
-    public Image StatusIcon;
-    public Image ActionsIcon;
-    public Color[] actionscolors = new Color[4]; 
+
 
     private void Start()
     {
@@ -297,88 +295,34 @@ public class DialogueManager : MonoBehaviour
         return dialogueToShow;
     }
 
-    public void ShowIcon(States.playerStates Status)
-    {
-
-        StatusIcon.gameObject.SetActive(true);
-        if (Status == States.playerStates.Good)
-        {
-            StatusIcon.color = Color.blue; 
-        }
-
-        else if (Status == States.playerStates.Bad)
-        {
-            StatusIcon.color= Color.red;
-        }
-        Invoke("HideIcons", 4);
-    }
-
-    public void ShowIcon(Action.playerActions ActionUse)
-    {
-        ActionsIcon.gameObject.SetActive(true);
-        switch (ActionUse)
-        {
-            case Action.playerActions.Save:
-                ActionsIcon.color = actionscolors[0]; 
-            break;
-
-            case Action.playerActions.Truth:
-            ActionsIcon.color = actionscolors[1];
-            break;
-
-            case Action.playerActions.Kill:
-            ActionsIcon.color = actionscolors[2];
-            break;
-
-            case Action.playerActions.Lie:
-            ActionsIcon.color = actionscolors[3];
-            break;
-
-            default:
-                Debug.Log("No se recnonce esa acción");
-            break;
-        }
-        Invoke("HideIcons", 4);
-    }
-
-    private void HideIcons()
-    {
-        StatusIcon.gameObject.SetActive(false);
-        ActionsIcon.gameObject.SetActive(false);
-    }
+   
 
     public void ShowHD()
     {
         textDialogue.text= ShowDialogue(7, States.playerStates.Good);
-        ShowIcon(States.playerStates.Good);
     }
 
     public void ShowVD()
     {
         textDialogue.text = ShowDialogue(7, States.playerStates.Bad);
-        ShowIcon(States.playerStates.Bad);
     }
 
     public void ShowSD()
     {
-       textDialogue.text = ShowDialogue(2, Action.playerActions.Save);
-       ShowIcon(Action.playerActions.Save);
+       textDialogue.text = ShowDialogue(2, Action.playerActions.Save);;
     }
     public void ShowTD() 
     {
        textDialogue.text = ShowDialogue(2, Action.playerActions.Truth);
-       ShowIcon(Action.playerActions.Truth);
     }
 
     public void ShowKD()
     {
        textDialogue.text = ShowDialogue(2, Action.playerActions.Kill);
-       ShowIcon(Action.playerActions.Kill);
     }
 
     public void ShowLD()
     {
        textDialogue.text = ShowDialogue(2, Action.playerActions.Lie);
-       ShowIcon(Action.playerActions.Lie);
     }
 }
