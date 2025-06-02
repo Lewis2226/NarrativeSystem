@@ -23,7 +23,7 @@ public class Aftermath : MonoBehaviour
         HistoryLevel = level;
     }
 
-    public int GetNarratuveLevel() 
+    public int GetNarrativeLevel() 
     {
         return HistoryLevel;
     }
