@@ -25,8 +25,6 @@ public class NarrativeManager : MonoBehaviour
         dialogueManager = GetComponent<DialogueManager>();
         ChangePlayerState(13, 5, 1);
         //playerStates = States.playerStates.Bad;
-        Debug.Log(playerStates);
-        ShowHistoryDialogue();
         NPCsDialogue();
         ChangeWorld(playerStates, 1);
     }
@@ -265,15 +263,45 @@ public class NarrativeManager : MonoBehaviour
                 break;
 
             default:
-                Debug.Log("No se recnonce esa acción");
+                Debug.Log("No se recononce esa acción");
                 break;
         }
-        Invoke("HideIcons", 4);
+        Invoke("HideIcons", 4f);
     }
 
     private void HideIcons()
     {
         StatusIcon.gameObject.SetActive(false);
         ActionsIcon.gameObject.SetActive(false);
+    }
+
+    public void SIG()
+    {
+        ShowIcon(States.playerStates.Good);
+    }
+
+    public void SIB()
+    {
+        ShowIcon(States.playerStates.Bad);
+    }
+
+    public void SIS() 
+    {
+        ShowIcon(Action.playerActions.Save);
+    }
+
+    public void SIT()
+    {
+        ShowIcon(Action.playerActions.Truth);
+    }
+
+    public void SIK()
+    {
+        ShowIcon(Action.playerActions.Kill);
+    }
+
+    public void SIL()
+    {
+        ShowIcon(Action.playerActions.Lie);
     }
 }
