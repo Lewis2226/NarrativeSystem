@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactions : MonoBehaviour
 {
-    // Start is called before the first frame update
-
+    
     public Action.playerActions actionUse;
     private States.playerStates playerState;
     public TextAsset InteractionDialogue;

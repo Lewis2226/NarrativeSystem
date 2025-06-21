@@ -111,11 +111,6 @@ public class DialogueManager : MonoBehaviour
        
     }
 
-   /* public List<DialogueInterration> GetDialogueInterrationsList()
-    {
-        return dialoguesInterration; tengo que ver si puedo usar esto 
-    }
-   */
 
     public string GetDialogueNarratve(int id, States.playerStates Statetypes)
     {
@@ -275,7 +270,6 @@ public class DialogueManager : MonoBehaviour
     public string ShowDialogue(int dialogueId, States.playerStates dialogueState) //Para dialogos narrativos
     {
         string dialogueToShow = GetDialogueNarratve(dialogueId, dialogueState);
-        //Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
     }
 
@@ -283,7 +277,6 @@ public class DialogueManager : MonoBehaviour
     public string ShowDialogue(int level, Action.playerActions actionType) //Para dialogos de interraciones
     {
         string dialogueToShow = GetDialogueInteraction(level, actionType);
-        //Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
     }
 
@@ -291,7 +284,6 @@ public class DialogueManager : MonoBehaviour
     public string ShowDialogue(int GameLevel) //Para dialogos los NPCs
     {
         string dialogueToShow = GetDialogue(GameLevel);
-        //Debug.Log("Diálogo: " + dialogueToShow);
         return dialogueToShow;
     }
 

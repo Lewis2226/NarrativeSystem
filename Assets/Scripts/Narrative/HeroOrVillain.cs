@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HeroOrVillain : MonoBehaviour
 {
-    // Declaramos una variable del tipo enum
+
    [SerializeField] private States.playerStates PlayerState;
    [SerializeField] private int GoodPoints;
    [SerializeField] private int BadPoints;

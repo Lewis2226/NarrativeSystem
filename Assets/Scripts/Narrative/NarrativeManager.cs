@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +15,7 @@ public class NarrativeManager : MonoBehaviour
     public Image ActionsIcon;
     
 
-    // Start is called before the first frame update
+
     void Start()
     {
        
