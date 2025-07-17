@@ -13,7 +13,7 @@ public class Aftermath : MonoBehaviour
     {
         dialogueManager = GetComponent<DialogueManager>();
         dialogueManager.ReadCSV(DialoguesNarrative, 1);
-        ShowNarrativeDialogue(1, States.playerStates.Good);
+        ShowNarrativeDialogue();
     }
 
     public void SetNarrativeLevel(int level)
@@ -26,11 +26,9 @@ public class Aftermath : MonoBehaviour
         return HistoryLevel;
     }
 
-    public string ShowNarrativeDialogue(int level, States.playerStates NarrativeType)
+    public void ShowNarrativeDialogue()
     {
-        NarrativeDialogue = dialogueManager.ShowDialogue(level, NarrativeType);
-        Debug.Log(NarrativeDialogue);
-        return NarrativeDialogue;
+        NarrativeManager.Instance.ShowHistoryDialogue(HistoryLevel, PlayerStatus);
     }
 }
 

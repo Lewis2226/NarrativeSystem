@@ -14,7 +14,20 @@ public class NarrativeManager : MonoBehaviour
     public Image StatusIcon;
     public Image ActionsIcon;
     
+    public static NarrativeManager Instance { get; private set; }
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
 
     void Start()
     {
@@ -211,13 +224,13 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    void ShowHistoryDialogue()
-    {
-        dialogueManager.ShowDialogue(1, playerStates);
+   public void ShowHistoryDialogue(int level , States.playerStates dialogueState)
+   {
+        dialogueManager.ShowDialogue(level, dialogueState);
         ShowIcon(playerStates);
-    }
+   }
 
-    void NPCsDialogue()
+    public void NPCsDialogue()
     {
         dialogueManager.ShowDialogue(1);
     }

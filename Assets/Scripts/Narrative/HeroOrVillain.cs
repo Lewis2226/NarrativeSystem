@@ -7,13 +7,11 @@ public class HeroOrVillain : MonoBehaviour
    [SerializeField] private int GoodPoints;
    [SerializeField] private int BadPoints;
    [SerializeField] private string EventChoosen;
-    private Aftermath aftermath;
+   
 
     void Start()
     {
         PlayerState = States.playerStates.Neutral;
-        aftermath = GetComponent<Aftermath>();
-        Debug.Log(ShowNarrative());
     }
 
     public void SetState(States.playerStates NewState)
@@ -50,9 +48,8 @@ public class HeroOrVillain : MonoBehaviour
         }
    }
 
-   public string ShowNarrative()
+   public void ShowNarrative()
    {
-        string EventToShow = aftermath.ShowNarrativeDialogue(2,PlayerState);
-        return "Se eligió este evento " + EventToShow;
+        NarrativeManager.Instance.ShowHistoryDialogue( NarrativeManager.Instance.currentNarrativeLevel ,PlayerState);
    }
 }
