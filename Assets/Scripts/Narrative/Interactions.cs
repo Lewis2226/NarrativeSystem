@@ -6,15 +6,12 @@ public class Interactions : MonoBehaviour
     public Action.playerActions actionUse;
     private States.playerStates playerState;
     public TextAsset InteractionDialogue;
-    private DialogueManager dialogueManager;
 
     void Start()
     {
-        dialogueManager = GetComponent<DialogueManager>();
-        dialogueManager.ReadCSV(InteractionDialogue, 2);
-        SetAction(Action.playerActions.Kill);
-        dialogueManager.ShowDialogue(1, actionUse);
-        
+        NarrativeManager.Instance.ReadDialogue(InteractionDialogue, 2);
+        NarrativeManager.Instance.ShowInteractionsDialogue(1, actionUse);
+        SetAction(Action.playerActions.Kill);   
     }
 
     public void SetAction(Action.playerActions action)

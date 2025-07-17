@@ -224,11 +224,21 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
+   public void ReadDialogue(TextAsset DialoguesList, int DialoguesTypes)
+   {
+        dialogueManager.ReadCSV(DialoguesList, DialoguesTypes);
+   }
+
    public void ShowHistoryDialogue(int level , States.playerStates dialogueState)
    {
         dialogueManager.ShowDialogue(level, dialogueState);
         ShowIcon(playerStates);
    }
+
+    public void ShowInteractionsDialogue(int level, Action.playerActions actionType)
+    {
+        dialogueManager.ShowDialogue(level , actionType);
+    }
 
     public void NPCsDialogue()
     {

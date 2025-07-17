@@ -50,6 +50,6 @@ public class HeroOrVillain : MonoBehaviour
 
    public void ShowNarrative()
    {
-        NarrativeManager.Instance.ShowHistoryDialogue( NarrativeManager.Instance.currentNarrativeLevel ,PlayerState);
+        NarrativeManager.Instance.ShowHistoryDialogue(NarrativeManager.Instance.currentNarrativeLevel ,PlayerState);
    }
 }
