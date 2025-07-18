@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -40,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     public TextAsset dialoguesNPcs;
     public TextMeshProUGUI textDialogue;
     public TextMeshProUGUI textDialogueNPC;
+    private float typewriterSpeed = 0.2f;
 
 
     private void Start()
@@ -246,7 +249,7 @@ public class DialogueManager : MonoBehaviour
 
     public string GetDialogue(int GameLevel)
     {
-        int ramdonID = Random.Range(1, dialoguesNPCs.Count);
+        int ramdonID = UnityEngine.Random.Range(1, dialoguesNPCs.Count);
         Dialogue dialogue = dialoguesNPCs.Find(d => d.id == ramdonID);
 
         switch (GameLevel) 
@@ -288,15 +291,25 @@ public class DialogueManager : MonoBehaviour
     }
 
    
+    private IEnumerator Typewriter(string Dialogue)
+    {
+        textDialogue.text = "";
+        foreach (char letter in Dialogue)
+        {
+            textDialogue.text += letter;
+            yield return new WaitForSeconds(typewriterSpeed);
+
+        }
+    }
 
     public void ShowHD()
     {
-        textDialogue.text= ShowDialogue(7, States.playerStates.Good);
+        StartCoroutine(Typewriter(ShowDialogue(7, States.playerStates.Good)));
     }
 
     public void ShowVD()
     {
-        textDialogue.text = ShowDialogue(7, States.playerStates.Bad);
+        StartCoroutine(Typewriter(ShowDialogue(7, States.playerStates.Good)));
     }
 
     public void ShowSD()
