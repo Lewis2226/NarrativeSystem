@@ -433,9 +433,11 @@ MonoBehaviour:
   dialoguesHistory: []
   dialoguesInteraction: []
   dialoguesNPCs: []
+  dialoguesSequence: []
   dialoguesHeroOrVillan: {fileID: 4900000, guid: c330b7a50d1253b4ebc77e67c84fcdfd, type: 3}
   dialoguesInterations: {fileID: 4900000, guid: 246652b88f85d114d8ba868e9156a633, type: 3}
   dialoguesNPcs: {fileID: 4900000, guid: 822624ecddafd9a4481fe6b47692d1cd, type: 3}
+  dialogueSequences: {fileID: 4900000, guid: d3326af47f0bbbb419b9d9de4a35c713, type: 3}
   textDialogue: {fileID: 699665079}
   textDialogueNPC: {fileID: 1320169962}
 --- !u!114 &382401976
@@ -458,7 +460,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382401970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77f0b98a8247154388ad7b32684f2aa, type: 3}
   m_Name: 

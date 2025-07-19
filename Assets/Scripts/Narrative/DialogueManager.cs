@@ -24,7 +24,7 @@ public class DialogueInteraction
 }
 
 [System.Serializable]
-public class Dialogue
+public class DialogueNPCs
 {
     public int id;
     public string StartDialogue;
@@ -32,17 +32,28 @@ public class Dialogue
     public string EndDialogue;
 }
 
+[System.Serializable]
+public class DialogueSequences
+{
+    public int id;
+    public string Dialogue;
+    public int nextID;
+}
+
 public class DialogueManager : MonoBehaviour
 {
     public List<HistoryDialogue> dialoguesHistory;
     public List<DialogueInteraction> dialoguesInteraction;
-    public List<Dialogue> dialoguesNPCs;
+    public List<DialogueNPCs> dialoguesNPCs;
+    public List<DialogueSequences> dialoguesSequence;
     public TextAsset dialoguesHeroOrVillan;
     public TextAsset dialoguesInterations;
     public TextAsset dialoguesNPcs;
+    public TextAsset dialogueSequences;
     public TextMeshProUGUI textDialogue;
     public TextMeshProUGUI textDialogueNPC;
     private float typewriterSpeed = 0.2f;
+    private int currentdialogue = 1;
 
 
     private void Start()
@@ -50,6 +61,9 @@ public class DialogueManager : MonoBehaviour
         ReadCSV(dialoguesHeroOrVillan, 1);
         ReadCSV(dialoguesInterations, 2);
         ReadCSV(dialoguesNPcs, 3);
+        ReadCSV(dialogueSequences, 4);
+        ShowDialogueSequences(1);
+        InvokeRepeating("NextDialogueSequence", 5f, 2f);
     }
 
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)
@@ -97,7 +111,7 @@ public class DialogueManager : MonoBehaviour
                     string line = lines[i];
                     if (string.IsNullOrEmpty(line)) continue;
                     string[] data = line.Split(",");
-                    Dialogue dialogue = new Dialogue();
+                    DialogueNPCs dialogue = new DialogueNPCs();
                     dialogue.id= int.Parse(data[0]);
                     dialogue.StartDialogue = data[1];
                     dialogue.MidDialogue = data[2];
@@ -106,12 +120,24 @@ public class DialogueManager : MonoBehaviour
                   }
                 break;
 
+                case 4: //Diálogos Sequenciales
+                  for (int i = 1; i < lines.Length; i++)
+                  {
+                    string line = lines[i];
+                    if (string.IsNullOrEmpty(line)) continue;
+                    string[] data = line.Split(",");
+                    DialogueSequences dialogue = new DialogueSequences();
+                    dialogue.id = int.Parse(data[0]);
+                    dialogue.Dialogue = data[1];
+                    dialogue.nextID = int.Parse(data[2]);
+                    dialoguesSequence.Add(dialogue);
+                  }
+                break;
+
                 default: //No se reconoce el tipo de diálogos
                 Debug.Log("No existe se tipo de dialogos");
                 break;
-
         }
-       
     }
 
 
@@ -247,10 +273,10 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public string GetDialogue(int GameLevel)
+    public string GetDialogueNPCs(int GameLevel)
     {
         int ramdonID = UnityEngine.Random.Range(1, dialoguesNPCs.Count);
-        Dialogue dialogue = dialoguesNPCs.Find(d => d.id == ramdonID);
+        DialogueNPCs dialogue = dialoguesNPCs.Find(d => d.id == ramdonID);
 
         switch (GameLevel) 
         {
@@ -266,6 +292,30 @@ public class DialogueManager : MonoBehaviour
             default:
                 Debug.Log("No se encuetro ese nivel del juego");
                 return "";
+        }
+    }
+
+    public string GetDialogueSequence(int id)
+    {
+        DialogueSequences dialogue = dialoguesSequence.Find(d => d.id == id);
+        if (dialogue != null)
+        {
+            string current = dialogue.Dialogue;
+            currentdialogue = dialogue.nextID;
+            return current;
+        }
+        return "";
+    }
+
+    public void NextDialogueSequence()
+    {
+        if(currentdialogue != 0)
+        {
+            ShowDialogueSequences(currentdialogue);
+        }
+        else
+        {
+            Debug.Log("Ya no hay dialogos");
         }
     }
 
@@ -286,8 +336,15 @@ public class DialogueManager : MonoBehaviour
 
     public string ShowDialogue(int GameLevel) //Para dialogos los NPCs
     {
-        string dialogueToShow = GetDialogue(GameLevel);
+        string dialogueToShow = GetDialogueNPCs(GameLevel);
         return dialogueToShow;
+    }
+
+    public string  ShowDialogueSequences(int DialogueID) //Para los eventos
+    {
+        string dialogueToShow = GetDialogueSequence(DialogueID);
+        Debug.Log(dialogueToShow);
+        return dialogueToShow; 
     }
 
    
@@ -298,7 +355,6 @@ public class DialogueManager : MonoBehaviour
         {
             textDialogue.text += letter;
             yield return new WaitForSeconds(typewriterSpeed);
-
         }
     }
 
