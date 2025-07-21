@@ -53,7 +53,10 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI textDialogue;
     public TextMeshProUGUI textDialogueNPC;
     private float typewriterSpeed = 0.2f;
-    private int currentdialogue = 1;
+    private int currentDialogueID = 1;
+    private string currentDialogue;
+    private bool isTyping = false;
+    private bool canSkip = false;
 
 
     private void Start()
@@ -62,8 +65,8 @@ public class DialogueManager : MonoBehaviour
         ReadCSV(dialoguesInterations, 2);
         ReadCSV(dialoguesNPcs, 3);
         ReadCSV(dialogueSequences, 4);
-        ShowDialogueSequences(1);
-        InvokeRepeating("NextDialogueSequence", 5f, 2f);
+        StartCoroutine(Typewriter(ShowDialogueSequences(1)));
+
     }
 
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)
@@ -300,22 +303,40 @@ public class DialogueManager : MonoBehaviour
         DialogueSequences dialogue = dialoguesSequence.Find(d => d.id == id);
         if (dialogue != null)
         {
-            string current = dialogue.Dialogue;
-            currentdialogue = dialogue.nextID;
-            return current;
+            currentDialogue = dialogue.Dialogue;
+            currentDialogueID = dialogue.nextID;
+            isTyping = true;
+            canSkip = false;
+            return currentDialogue;
         }
         return "";
     }
 
     public void NextDialogueSequence()
     {
-        if(currentdialogue != 0)
+        if(currentDialogueID != 0)
         {
-            ShowDialogueSequences(currentdialogue);
+            StartCoroutine(Typewriter(ShowDialogueSequences(currentDialogueID)));
         }
         else
         {
             Debug.Log("Ya no hay dialogos");
+        }
+    }
+
+    public void SkipDialogueSequence()
+    {
+        if (isTyping)
+        {
+            StopAllCoroutines();
+            textDialogue.text = currentDialogue;
+            isTyping = false;
+            canSkip= true;
+        }
+        else if (canSkip || !isTyping)
+        {
+
+            ShowDialogueSequences(currentDialogueID);
         }
     }
 
@@ -343,7 +364,6 @@ public class DialogueManager : MonoBehaviour
     public string  ShowDialogueSequences(int DialogueID) //Para los eventos
     {
         string dialogueToShow = GetDialogueSequence(DialogueID);
-        Debug.Log(dialogueToShow);
         return dialogueToShow; 
     }
 
@@ -356,7 +376,12 @@ public class DialogueManager : MonoBehaviour
             textDialogue.text += letter;
             yield return new WaitForSeconds(typewriterSpeed);
         }
+
+        isTyping = false;
     }
+
+    
+
 
     public void ShowHD()
     {
