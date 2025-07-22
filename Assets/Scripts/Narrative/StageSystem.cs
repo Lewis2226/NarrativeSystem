@@ -11,6 +11,8 @@ public class StageSystem : MonoBehaviour
     void Start()
     {
         SetStage(currentStage, GameStages[currentStage].phases, GameStages[currentStage].name);
+        Debug.Log("La fase Maxima es: " + maxPhase);
+        InvokeRepeating("NextPhase", 4f, 2f);
 
     }
 
@@ -31,14 +33,18 @@ public class StageSystem : MonoBehaviour
 
     void NextPhase()
     {
-        if(currentPhase <= maxPhase)
+        if(currentPhase < maxPhase)
         {
             currentPhase++;
+            Debug.Log("La fase actual es: " + currentPhase);
         }
         else
         {
             currentPhase = maxPhase;
+            CompleteStage();
+            Debug.Log("La fase actual es: " + currentPhase);
         }
+        
     }
 
     void CompleteStage()
