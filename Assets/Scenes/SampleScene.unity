@@ -760,6 +760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameStages:
   - {fileID: 11400000, guid: a85f16c2fe6bc6d4281de08ea62af889, type: 2}
+  - {fileID: 11400000, guid: e24ac7c04c1b4de4d9d40b2451ef5d6b, type: 2}
 --- !u!1 &390538993
 GameObject:
   m_ObjectHideFlags: 0

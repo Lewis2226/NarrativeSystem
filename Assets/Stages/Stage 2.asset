@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7370bf6f3c475a24e861c30664b8e19f, type: 3}
-  m_Name: Stage 1
+  m_Name: Stage 2
   m_EditorClassIdentifier: 
-  stageName: Prueba
-  phases: 2
+  stageName: Medio dia
+  phases: 3
   completed: 1
   stateHowCompleted: 0

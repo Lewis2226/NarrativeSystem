@@ -9,5 +9,6 @@ public class Stages : ScriptableObject
     public string stageName;
     public int phases;
     public bool completed;
+    public States.playerStates stateHowCompleted;
        
 }
