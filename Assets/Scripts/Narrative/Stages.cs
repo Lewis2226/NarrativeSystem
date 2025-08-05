@@ -10,5 +10,5 @@ public class Stages : ScriptableObject
     public int phases;
     public bool completed;
     public States.playerStates stateHowCompleted;
-       
+    public List<Events> toAdd;
 }

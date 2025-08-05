@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StageSystem : MonoBehaviour
@@ -98,5 +99,12 @@ public class StageSystem : MonoBehaviour
     {
         GameStages[currentStage].stateHowCompleted = status;
         Debug.Log(GameStages[currentStage].stateHowCompleted);
+    }
+
+    public List<Events> AddEvents()
+    {
+        List<Events> list = new List<Events>();
+        list = GameStages[currentStage].toAdd;
+        return list;
     }
 }

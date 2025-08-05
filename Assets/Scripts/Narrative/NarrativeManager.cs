@@ -181,23 +181,9 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    public void ActiveEvent(int savepoints, int truthpoints, int killpoints, int liepoints, Event.gameEvents EventToSelect)
+    public void ActiveEvent(States.playerStates playerStates)
     {
-        switch (EventToSelect)
-        {
-            case Event.gameEvents.Dialogue:
-                Debug.Log("Se mostro un dialogo");
-            break;
-
-            case Event.gameEvents.Submission:
-                Debug.Log("Se dio una submission");
-            break;
-
-            default:
-                Debug.Log("No se reconoce ese evento");
-            break;
-
-        }
+        
     }
 
 

@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Stages", menuName = "ScriptableObjects/Etapas del juego", order = 1)]
+[CreateAssetMenu(fileName = "Events", menuName = "ScriptableObjects/Eventos del juego", order = 1)]
 
 public class Events : ScriptableObject
 {
+    public int eventId;
+    public int stage;
     public string eventName;
-    public string moral;
+    public States.playerStates moral;
     public int duration;
-    public bool status;
+    public bool failed;
     public bool completed;
     public TextAsset eventdialogues;
 
