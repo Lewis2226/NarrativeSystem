@@ -10,6 +10,7 @@ public class Events : ScriptableObject
     public int stage;
     public string eventName;
     public States.playerStates moral;
+    public Action.playerActions actionToComplete;
     public int duration;
     public bool failed;
     public bool completed;

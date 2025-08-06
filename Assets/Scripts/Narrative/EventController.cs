@@ -39,11 +39,11 @@ public class EventController : MonoBehaviour
         }
     }
 
-    public void ChechkEvents(States.playerStates playerStates)
+    public void ChechkEvents(States.playerStates playerStates, Action.playerActions ActionUse)
     {
         foreach(Events e in activedEvents)
         {
-            if(e.failed == true && e.moral != playerStates) 
+            if(e.failed == true && e.moral != playerStates && e.actionToComplete != ActionUse) 
             {
                 RemoveEvent();
             }
