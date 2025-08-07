@@ -181,9 +181,9 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    public void ActiveEvent(States.playerStates playerStates)
+    public void ActiveEvent(int eventId,States.playerStates playerStates, int dialogueID)//Eventos narrativos
     {
-        
+        EventController.Instance.ShowEvent(eventId,1,dialogueID, playerStates);
     }
 
 

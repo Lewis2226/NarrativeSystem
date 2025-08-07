@@ -58,6 +58,21 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false;
     private bool canSkip = false;
 
+    public static DialogueManager Instance { get; private set; }
+
+    public void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+
 
     private void Start()
     {
@@ -368,7 +383,7 @@ public class DialogueManager : MonoBehaviour
     }
 
    
-    private IEnumerator Typewriter(string Dialogue)
+    public IEnumerator Typewriter(string Dialogue)
     {
         textDialogue.text = "";
         foreach (char letter in Dialogue)

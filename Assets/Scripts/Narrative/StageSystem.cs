@@ -8,7 +8,7 @@ public class StageSystem : MonoBehaviour
     private int maxPhase;
     private int currentPhase;
 
-    public StageSystem Instance { get; private set; }
+    public static StageSystem Instance { get; private set; }
 
     private void Awake()
     {
@@ -106,5 +106,10 @@ public class StageSystem : MonoBehaviour
         List<Events> list = new List<Events>();
         list = GameStages[currentStage].toAdd;
         return list;
+    }
+
+    public void ShowEvent(int eventId, int dilaogueType, int level, Action.playerActions dialogueAction)//Eventos Interactivos
+    {
+        EventController.Instance.ShowEvent(eventId, dilaogueType, level, dialogueAction);
     }
 }
