@@ -84,6 +84,11 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Permite leer los archivos csv.
+    /// </summary>
+    /// <param name="DialoguesList"></param>
+    /// <param name="DialoguesTypes"></param>
     public void ReadCSV(TextAsset DialoguesList, int DialoguesTypes)
     {
         string[] lines = DialoguesList.text.Split('\n');
@@ -158,7 +163,14 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Obtiene diálogos narrativos.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="Statetypes"></param>
+    /// <returns>
+    /// Los regresa en formato string.
+    /// </returns>
     public string GetDialogueNarratve(int id, States.playerStates Statetypes)
     {
         HistoryDialogue dialogue = dialoguesHistory.Find(d => d.id == id);
@@ -183,6 +195,14 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Obtiene los diálogos de interraciones.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="actionstype"></param>
+    /// <returns>
+    /// Los regresa en formato string.
+    /// </returns>
     public string GetDialogueInteraction(int id, Action.playerActions actionstype)
     {
         DialogueInteraction dialogue;
@@ -290,7 +310,13 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Obtiene los dialgos de los NPCs
+    /// </summary>
+    /// <param name="GameLevel"></param>
+    /// <returns>
+    /// Los regresa en formato string.
+    /// </returns>
     public string GetDialogueNPCs(int GameLevel)
     {
         int ramdonID = UnityEngine.Random.Range(1, dialoguesNPCs.Count);
@@ -313,6 +339,13 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Obtiene los diálogos sequenciales.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>
+    /// Los regresa en formato string.
+    /// </returns>
     public string GetDialogueSequence(int id)
     {
         DialogueSequences dialogue = dialoguesSequence.Find(d => d.id == id);
@@ -327,6 +360,9 @@ public class DialogueManager : MonoBehaviour
         return "";
     }
 
+    /// <summary>
+    /// Muestra el siguiente diálogo sequencial.
+    /// </summary>
     public void NextDialogueSequence()
     {
         if(currentDialogueID != 0)
@@ -339,6 +375,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Salta la corrutina de maquina de escribir y muestra el diálogo de manera inmediata.
+    /// </summary>
     public void SkipDialogueSequence()
     {
         if (isTyping)
@@ -355,34 +394,68 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
-    public string ShowDialogue(int dialogueId, States.playerStates dialogueState) //Para dialogos narrativos
+    /// <summary>
+    /// Muestra los diálogos en este caso los narrativos.
+    /// </summary>
+    /// <param name="dialogueId"></param>
+    /// <param name="dialogueState"></param>
+    /// <returns>
+    /// Los regresa en formato string.
+    /// </returns>
+    public string ShowDialogue(int dialogueId, States.playerStates dialogueState)
     {
         string dialogueToShow = GetDialogueNarratve(dialogueId, dialogueState);
         return dialogueToShow;
     }
 
 
-    public string ShowDialogue(int level, Action.playerActions actionType) //Para dialogos de interraciones
+    /// <summary>
+    /// Muestra los diálogos en este caso los de interraciones.
+    /// </summary>
+    /// <param name="level"></param>
+    /// <param name="actionType"></param>
+    /// <returns>
+    /// Los regresa en formato string.
+    /// </returns>
+    public string ShowDialogue(int level, Action.playerActions actionType) 
     {
         string dialogueToShow = GetDialogueInteraction(level, actionType);
         return dialogueToShow;
     }
 
-
-    public string ShowDialogue(int GameLevel) //Para dialogos los NPCs
+    /// <summary>
+    /// Muestra los diálogos en este caso los de NPCs.
+    /// </summary>
+    /// <param name="GameLevel"></param>
+    /// <returns>
+    /// Los regresa en fomato string.
+    /// </returns>
+    public string ShowDialogue(int GameLevel) 
     {
         string dialogueToShow = GetDialogueNPCs(GameLevel);
         return dialogueToShow;
     }
 
-    public string  ShowDialogueSequences(int DialogueID) //Para los eventos
+    /// <summary>
+    /// Muestra los dialogos sequenciales.
+    /// </summary>
+    /// <param name="DialogueID"></param>
+    /// <returns>
+    /// Los regresa en formato string.
+    /// </returns>
+    public string  ShowDialogueSequences(int DialogueID) 
     {
         string dialogueToShow = GetDialogueSequence(DialogueID);
         return dialogueToShow; 
     }
 
-   
+    /// <summary>
+    /// Corrutina para mostrar los diálogos con si fuera una máquina de escribir.
+    /// </summary>
+    /// <param name="Dialogue"></param>
+    /// <returns>
+    /// Este muestra cada letra tomando en cuenta el valor de typewriterSpeed.
+    /// </returns>
     public IEnumerator Typewriter(string Dialogue)
     {
         textDialogue.text = "";
@@ -393,37 +466,5 @@ public class DialogueManager : MonoBehaviour
         }
 
         isTyping = false;
-    }
-
-    
-
-
-    public void ShowHD()
-    {
-        StartCoroutine(Typewriter(ShowDialogue(7, States.playerStates.Good)));
-    }
-
-    public void ShowVD()
-    {
-        StartCoroutine(Typewriter(ShowDialogue(7, States.playerStates.Good)));
-    }
-
-    public void ShowSD()
-    {
-       textDialogue.text = ShowDialogue(2, Action.playerActions.Save);;
-    }
-    public void ShowTD() 
-    {
-       textDialogue.text = ShowDialogue(2, Action.playerActions.Truth);
-    }
-
-    public void ShowKD()
-    {
-       textDialogue.text = ShowDialogue(2, Action.playerActions.Kill);
-    }
-
-    public void ShowLD()
-    {
-       textDialogue.text = ShowDialogue(2, Action.playerActions.Lie);
     }
 }
