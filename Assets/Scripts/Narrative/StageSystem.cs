@@ -7,6 +7,7 @@ public class StageSystem : MonoBehaviour
     int currentStage = 0;
     private int maxPhase;
     private int currentPhase;
+    private States.playerStates playerState;
 
     public static StageSystem Instance { get; private set; }
 
@@ -39,11 +40,20 @@ public class StageSystem : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Revisa el estado de la etapa.
+    /// </summary>
+    /// <returns>
+    /// Regresa el estado de la etapa.
+    /// </returns>
     bool StageCheck()
     {
         return GameStages[currentStage].completed;
     }
 
+    /// <summary>
+    /// Cambia a la siguiente fase de la etapa.
+    /// </summary>
     public void NextPhase()
     {
         if(currentPhase < maxPhase)
@@ -61,16 +71,22 @@ public class StageSystem : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Asigna la etapa como completada.
+    /// </summary>
     public void CompleteStage()
     {
+
         if (currentPhase == maxPhase)
         {
             GameStages[currentStage].completed = true;
-            WayofComplete(States.playerStates.Good);
+            WayofComplete(playerState);
         }
     }
 
-
+    /// <summary>
+    /// Cambia la siguiente etapa.
+    /// </summary>
     public void NextStage()
     {
         if (StageCheck())
@@ -88,6 +104,12 @@ public class StageSystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Asigna la etapa.
+    /// </summary>
+    /// <param name="Phase"></param>
+    /// <param name="maxphase"></param>
+    /// <param name="StageName"></param>
     void SetStage(int Phase, int maxphase, string StageName)
     {
         currentPhase = Phase;
@@ -95,12 +117,20 @@ public class StageSystem : MonoBehaviour
         string name = StageName;
     }
 
+    /// <summary>
+    /// Revisa la forma de Completar la etapa.
+    /// </summary>
+    /// <param name="status"></param>
     public void WayofComplete(States.playerStates status)
     {
         GameStages[currentStage].stateHowCompleted = status;
         Debug.Log(GameStages[currentStage].stateHowCompleted);
     }
 
+    /// <summary>
+    /// Agrega eventos a la lista de eventos. 
+    /// </summary>
+    /// <returns></returns>
     public List<Events> AddEvents()
     {
         List<Events> list = new List<Events>();
@@ -108,7 +138,14 @@ public class StageSystem : MonoBehaviour
         return list;
     }
 
-    public void ShowEvent(int eventId, int dilaogueType, int level, Action.playerActions dialogueAction)//Eventos Interactivos
+    /// <summary>
+    /// Muestra los evenots de interacciones.
+    /// </summary>
+    /// <param name="eventId"></param>
+    /// <param name="dilaogueType"></param>
+    /// <param name="level"></param>
+    /// <param name="dialogueAction"></param>
+    public void ShowEvent(int eventId, int dilaogueType, int level, Action.playerActions dialogueAction)
     {
         EventController.Instance.ShowEvent(eventId, dilaogueType, level, dialogueAction);
     }

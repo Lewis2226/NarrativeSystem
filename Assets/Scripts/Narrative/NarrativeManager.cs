@@ -39,6 +39,12 @@ public class NarrativeManager : MonoBehaviour
         ChangeWorld(playerStates, 1);
     }
 
+    /// <summary>
+    /// Cambia el estado del jugador.
+    /// </summary>
+    /// <param name="heroPoints"></param>
+    /// <param name="villanPoints"></param>
+    /// <param name="level"></param>
     public void ChangePlayerState(int heroPoints,int villanPoints,int level)
     {
         switch (level)
@@ -181,12 +187,22 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    public void ActiveEvent(int eventId,States.playerStates playerStates, int dialogueID)//Eventos narrativos
+    /// <summary>
+    /// Activa los eventos narrativos.
+    /// </summary>
+    /// <param name="eventId"></param>
+    /// <param name="playerStates"></param>
+    /// <param name="dialogueID"></param>
+    public void ActiveEvent(int eventId,States.playerStates playerStates, int dialogueID)
     {
         EventController.Instance.ShowEvent(eventId,1,dialogueID, playerStates);
     }
 
-
+    /// <summary>
+    /// Cambia el estado del mundo.
+    /// </summary>
+    /// <param name="playerState"></param>
+    /// <param name="GameLevel"></param>
     private void ChangeWorld(States.playerStates playerState , int GameLevel)
     {
         switch(GameLevel)
@@ -210,27 +226,49 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Lee los csv de los dialogos.
+    /// </summary>
+    /// <param name="DialoguesList"></param>
+    /// <param name="DialoguesTypes"></param>
    public void ReadDialogue(TextAsset DialoguesList, int DialoguesTypes)
    {
         dialogueManager.ReadCSV(DialoguesList, DialoguesTypes);
    }
 
+   /// <summary>
+   /// Muestra los diálogos narrativos.
+   /// </summary>
+   /// <param name="level"></param>
+   /// <param name="dialogueState"></param>
    public void ShowHistoryDialogue(int level , States.playerStates dialogueState)
    {
         dialogueManager.ShowDialogue(level, dialogueState);
         ShowIcon(playerStates);
    }
 
+    /// <summary>
+    /// Muestra los diálogos de interacciones.
+    /// </summary>
+    /// <param name="level"></param>
+    /// <param name="actionType"></param>
     public void ShowInteractionsDialogue(int level, Action.playerActions actionType)
     {
         dialogueManager.ShowDialogue(level , actionType);
     }
 
+    /// <summary>
+    /// Muestra los dialogos de los NPCs.
+    /// </summary>
     public void NPCsDialogue()
     {
         dialogueManager.ShowDialogue(1);
     }
 
+    /// <summary>
+    /// Muestra los iconos de los estados del jugador.
+    /// </summary>
+    /// <param name="Status"></param>
     public void ShowIcon(States.playerStates Status)
     {
 
@@ -247,6 +285,10 @@ public class NarrativeManager : MonoBehaviour
         Invoke("HideIcons", 4);
     }
 
+    /// <summary>
+    /// Muestralos iconos de las acciones.
+    /// </summary>
+    /// <param name="ActionUse"></param>
     public void ShowIcon(Action.playerActions ActionUse)
     {
         ActionsIcon.gameObject.SetActive(true);
@@ -275,39 +317,12 @@ public class NarrativeManager : MonoBehaviour
         Invoke("HideIcons", 4f);
     }
 
+    /// <summary>
+    /// Oculta los iconos sin importar el tipo.
+    /// </summary>
     private void HideIcons()
     {
         StatusIcon.gameObject.SetActive(false);
         ActionsIcon.gameObject.SetActive(false);
-    }
-
-    public void SIG()
-    {
-        ShowIcon(States.playerStates.Good);
-    }
-
-    public void SIB()
-    {
-        ShowIcon(States.playerStates.Bad);
-    }
-
-    public void SIS() 
-    {
-        ShowIcon(Action.playerActions.Save);
-    }
-
-    public void SIT()
-    {
-        ShowIcon(Action.playerActions.Truth);
-    }
-
-    public void SIK()
-    {
-        ShowIcon(Action.playerActions.Kill);
-    }
-
-    public void SIL()
-    {
-        ShowIcon(Action.playerActions.Lie);
     }
 }
