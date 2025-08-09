@@ -20,6 +20,13 @@ public class EventController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Permite buscar un evento de la lista de eventos.
+    /// </summary>
+    /// <param name="eventID"></param>
+    /// <returns>
+    /// Si lo encuetra regresa ese evento, en caso de que no regresa nada.
+    /// </returns>
    public Events FindEvent(int eventID)
    {
         Events eventFind = activedEvents.Find(d => d.eventId == eventID);
@@ -33,6 +40,10 @@ public class EventController : MonoBehaviour
         }
    } 
 
+    /// <summary>
+    /// Permite agregar una lista de eventos a la lista de eventos activos.
+    /// </summary>
+    /// <param name="eventsToAdd"></param>
     public void AddEvent(List<Events> eventsToAdd)
     {
         foreach(Events e in eventsToAdd)
@@ -41,6 +52,9 @@ public class EventController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Quita eventos de la lista de eventos, los que se quitan son los completados o los fallidos.
+    /// </summary>
     public void RemoveEvent() 
     {
         foreach (Events e in activedEvents)
@@ -52,7 +66,12 @@ public class EventController : MonoBehaviour
         }
     }
 
-    public void ChechkEvents(States.playerStates playerStates, Action.playerActions ActionUse)
+    /// <summary>
+    /// Revisa los eventos para determinar si se completraon o se fallaron.
+    /// </summary>
+    /// <param name="playerStates"></param>
+    /// <param name="ActionUse"></param>
+    public void CheckEvents(States.playerStates playerStates, Action.playerActions ActionUse)
     {
         foreach(Events e in activedEvents)
         {
@@ -67,35 +86,23 @@ public class EventController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Asigna al evento seleccionado como fallido.
+    /// </summary>
+    /// <param name="eventFailed"></param>
     public void Setfailed(Events eventFailed)
     {
        FindEvent(eventFailed.eventId).failed = true;
     }
 
-    public void ShowEvent(int eventId, int dilaogueType, int dialogueID, States.playerStates dialogueState)//Mostar Eventos Narrativos
+    /// <summary>
+    /// Asigna al evento seleccionado con completado, tomando en cuenta la accion usada por el jugador.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="ActionUse"></param>
+    public void EventComplete(int id, Action.playerActions ActionUse)
     {
-        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
-        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(dialogueID, dialogueState));
-
-    }
-
-    public void ShowEvent(int eventId, int dilaogueType, int level, Action.playerActions dialogueAction)//Mostar Eventos Interraciones
-    {
-        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
-        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, dialogueAction));
-
-    }
-
-    public void ShowEvent(int eventId, int dilaogueType, int dialogueID)//Mostar dialogos Sequenciales
-    {
-        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
-        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(dialogueID));
-
-    }
-
-    public void EventComplete(int id,Action.playerActions ActionUse)
-    {
-        if(FindEvent(id).actionToComplete == ActionUse)
+        if (FindEvent(id).actionToComplete == ActionUse)
         {
             FindEvent(id).completed = true;
         }
@@ -103,5 +110,46 @@ public class EventController : MonoBehaviour
         {
             FindEvent(id).failed = true;
         }
+    }
+
+    /// <summary>
+    /// Muestra eventos narrativos.
+    /// </summary>
+    /// <param name="eventId"></param>
+    /// <param name="dilaogueType"></param>
+    /// <param name="dialogueID"></param>
+    /// <param name="dialogueState"></param>
+    public void ShowEvent(int eventId, int dilaogueType, int dialogueID, States.playerStates dialogueState)
+    {
+        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
+        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(dialogueID, dialogueState));
+
+    }
+
+    /// <summary>
+    /// Muestra los eventos de interacciones.
+    /// </summary>
+    /// <param name="eventId"></param>
+    /// <param name="dilaogueType"></param>
+    /// <param name="level"></param>
+    /// <param name="dialogueAction"></param>
+    public void ShowEvent(int eventId, int dilaogueType, int level, Action.playerActions dialogueAction)
+    {
+        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
+        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, dialogueAction));
+
+    }
+
+    /// <summary>
+    /// Muestra eventos sequenciales
+    /// </summary>
+    /// <param name="eventId"></param>
+    /// <param name="dilaogueType"></param>
+    /// <param name="dialogueID"></param>
+    public void ShowEvent(int eventId, int dilaogueType, int dialogueID)
+    {
+        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
+        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(dialogueID));
+
     }
 }
