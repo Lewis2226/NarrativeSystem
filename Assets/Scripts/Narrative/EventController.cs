@@ -25,7 +25,7 @@ public class EventController : MonoBehaviour
     /// </summary>
     /// <param name="eventID"></param>
     /// <returns>
-    /// Si lo encuetra regresa ese evento, en caso de que no regresa nada.
+    /// El evento, de lo contrario, regresa nulo
     /// </returns>
    public Events FindEvent(int eventID)
    {
