@@ -21,7 +21,7 @@ public class EventController : MonoBehaviour
     }
 
     /// <summary>
-    /// Permite buscar un evento de la lista de eventos.
+    /// Buscar un evento de la lista de eventos, tomando en cuenta el id del este.
     /// </summary>
     /// <param name="eventID"></param>
     /// <returns>
@@ -41,7 +41,7 @@ public class EventController : MonoBehaviour
    } 
 
     /// <summary>
-    /// Permite agregar una lista de eventos a la lista de eventos activos.
+    /// Agregar una lista de eventos a la lista de eventos activos, tomando en cuenta la lista de evetos que añadir.
     /// </summary>
     /// <param name="eventsToAdd"></param>
     public void AddEvent(List<Events> eventsToAdd)
@@ -87,7 +87,7 @@ public class EventController : MonoBehaviour
     }
 
     /// <summary>
-    /// Asigna al evento seleccionado como fallido.
+    /// Asigna al evento seleccionado como fallido, al evento dado.
     /// </summary>
     /// <param name="eventFailed"></param>
     public void Setfailed(Events eventFailed)

@@ -29,7 +29,7 @@ public class Aftermath : MonoBehaviour
     /// Obtiene el nivel narrativo.
     /// </summary>
     /// <returns>
-    /// Regresa el nivel narrativo del juego.
+    /// El nivel narrativo del juego.
     /// </returns>
     public int GetNarrativeLevel() 
     {

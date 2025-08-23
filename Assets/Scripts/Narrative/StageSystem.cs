@@ -105,7 +105,7 @@ public class StageSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Asigna la etapa.
+    /// Asigna la etapa, el numero de la fase, la fase maxima y el nombre de la etapa.
     /// </summary>
     /// <param name="Phase"></param>
     /// <param name="maxphase"></param>

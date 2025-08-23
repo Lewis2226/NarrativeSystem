@@ -26,6 +26,9 @@ public class EventUI : MonoBehaviour
         RefreseUI();
     }
 
+    /// <summary>
+    /// Actualiza la lista de eventos que se muestran en el UI
+    /// </summary>
     public void RefreseUI()
     {
         foreach (Transform child in contentPanel)

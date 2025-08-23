@@ -40,7 +40,7 @@ public class NarrativeManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Cambia el estado del jugador.
+    /// Cambia el estado del jugador, tomando en cuenta los puntos de heróe, villano y el nivel del juego.
     /// </summary>
     /// <param name="heroPoints"></param>
     /// <param name="villanPoints"></param>
@@ -199,7 +199,7 @@ public class NarrativeManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Cambia el estado del mundo.
+    /// Cambia el estado del mundo, tomando el cuenta el estado del jugador y el nivel del juego.
     /// </summary>
     /// <param name="playerState"></param>
     /// <param name="GameLevel"></param>

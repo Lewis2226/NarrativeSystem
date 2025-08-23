@@ -27,7 +27,7 @@ public class HeroOrVillain : MonoBehaviour
    /// Obtiene el estado del jugador.
    /// </summary>
    /// <returns>
-   /// Regresa el estado del jugador.
+   /// El actual estado del jugador.
    /// </returns>
    public States.playerStates GetState()
    {
@@ -35,7 +35,7 @@ public class HeroOrVillain : MonoBehaviour
    }
    
     /// <summary>
-    /// Asgina los puntos de estado del jugador.
+    /// Asgina los puntos de estado del jugador, para el estado seleccionado.
     /// </summary>
     /// <param name="PointsType"></param>
     /// <param name="amount"></param>
@@ -52,11 +52,11 @@ public class HeroOrVillain : MonoBehaviour
    }
 
     /// <summary>
-    /// Obtiene elos puntos de estado del jugador.
+    /// Obtiene los puntos de estado del jugador.
     /// </summary>
     /// <param name="PointsType"></param>
     /// <returns>
-    /// Regresa los puntos del estado bueno o malo.
+    /// Los puntos del estado bueno o malo, depenediendo del estado asignado.
     /// </returns>
    public int GetPoints(States.playerStates PointsType)
    {
