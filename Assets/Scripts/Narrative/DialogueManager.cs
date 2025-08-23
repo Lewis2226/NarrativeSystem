@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Permite leer los archivos csv.
+    /// Permite leer los archivos csv, recibe una arhivo csv y el tipo de diálogo.
     /// </summary>
     /// <param name="DialoguesList"></param>
     /// <param name="DialoguesTypes"></param>
@@ -164,7 +164,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Obtiene diálogos narrativos.
+    /// Obtiene diálogos narrativos, usando el id del diálogo.
     /// </summary>
     /// <param name="id"></param>
     /// <param name="Statetypes"></param>
@@ -196,7 +196,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Obtiene los diálogos de interraciones.
+    /// Obtiene los diálogos de interraciones, tomando en cuenta el id del diálogo.
     /// </summary>
     /// <param name="id"></param>
     /// <param name="actionstype"></param>
@@ -311,7 +311,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Obtiene los dialgos de los NPCs
+    /// Obtiene los dialgos de los NPCs, tomando el nivel del juego.
     /// </summary>
     /// <param name="GameLevel"></param>
     /// <returns>
@@ -340,7 +340,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Obtiene los diálogos sequenciales.
+    /// Obtiene los diálogos sequenciales, tomando en cuenta el id del diálogo.
     /// </summary>
     /// <param name="id"></param>
     /// <returns>
