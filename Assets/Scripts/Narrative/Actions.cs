@@ -18,9 +18,12 @@ public class Actions : MonoBehaviour
     /// <summary>
     /// Asinga el puntaje de la accion sleccionada tomando en cuenta el estado del jugador.
     /// </summary>
-    /// <param name="score"></param>
-    /// <param name="actionType"></param>
-    /// <param name="playerStatus"></param>
+    /// <param name="score">
+    /// </param>
+    /// <param name="actionType">  
+    /// </param>
+    /// <param name="playerStatus">
+    /// </param>
     public void SetScore(int score, Action.playerActions actionType, States.playerStates playerStatus)
     {
         switch (playerStatus)
@@ -71,7 +74,7 @@ public class Actions : MonoBehaviour
     /// Obtiene el puntaje de la acción.
     /// </summary>
     /// <returns>
-    /// Regresa el puntaje de la acción.
+    /// El puntaje de la acción seleccionada.
     /// </returns>
     public int GetScore() 
     {

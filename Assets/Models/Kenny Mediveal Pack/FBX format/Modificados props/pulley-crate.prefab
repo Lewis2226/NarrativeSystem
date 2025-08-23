@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8350535848895473415}
   - component: {fileID: 7141900323861537341}
   - component: {fileID: 4218531384719433720}
+  - component: {fileID: 8769549762336691686}
   m_Layer: 0
   m_Name: pulley-crate
   m_TagString: Untagged
@@ -85,3 +86,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8769549762336691686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634552702388095613}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.36742342, y: 0.40978575, z: 0.39756542}
+  m_Center: {x: 0.000000019868216, y: -0.74510705, z: -0.5349292}
