@@ -46,10 +46,7 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueInteraction> dialoguesInteraction;
     public List<DialogueNPCs> dialoguesNPCs;
     public List<DialogueSequences> dialoguesSequence;
-    public TextAsset dialoguesHeroOrVillan;
-    public TextAsset dialoguesInterations;
     public TextAsset dialoguesNPcs;
-    public TextAsset dialogueSequences;
     public TextMeshProUGUI textDialogue;
     public TextMeshProUGUI textDialogueNPC;
     private float typewriterSpeed = 0.2f;
@@ -76,10 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        ReadCSV(dialoguesHeroOrVillan, 1);
-        ReadCSV(dialoguesInterations, 2);
-        ReadCSV(dialoguesNPcs, 3);
-        ReadCSV(dialogueSequences, 4);
+
         StartCoroutine(Typewriter(ShowDialogueSequences(1)));
 
     }
