@@ -48,8 +48,7 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueSequences> dialoguesSequence;
     public TextAsset dialoguesNPcs;
     public TextMeshProUGUI textDialogue;
-    public TextMeshProUGUI textDialogueNPC;
-    private float typewriterSpeed = 0.2f;
+    [SerializeField] private float typewriterSpeed = 0.2f;
     private int currentDialogueID = 1;
     private string currentDialogue;
     private bool isTyping = false;

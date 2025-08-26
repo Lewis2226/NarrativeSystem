@@ -9,11 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7370bf6f3c475a24e861c30664b8e19f, type: 3}
-  m_Name: Stage 1
+  m_Script: {fileID: 11500000, guid: 8c941f487fc186c4e814b37b833fce92, type: 3}
+  m_Name: Event 2
   m_EditorClassIdentifier: 
-  stageName: "Ma\xF1ana"
-  phases: 2
-  completed: 1
-  stateHowCompleted: 0
-  toAdd: []
+  eventId: 0
+  stage: 0
+  eventName: 
+  moral: 0
+  actionToComplete: 0
+  duration: 0
+  failed: 0
+  completed: 0
+  eventdialogues: {fileID: 0}

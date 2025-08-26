@@ -3,13 +3,12 @@ using UnityEngine.UI;
 
 public class NarrativeManager : MonoBehaviour
 {
-    public States.playerStates currentState;
-    public States.playerStates playerStates;
+    private States.playerStates currentState;
+    private States.playerStates playerStates;
     public int currentNarrativeLevel;
-    public int heroPointsTotal;
-    public int villanPointsTotal;
-    public int[] actionsPointsTotal = new int[5];
-    private DialogueManager dialogueManager;
+    private int heroPointsTotal;
+    private int villanPointsTotal;
+    private int[] actionsPointsTotal = new int[4];
     public Color[] actionscolors = new Color[4];
     public Image StatusIcon;
     public Image ActionsIcon;
@@ -32,7 +31,6 @@ public class NarrativeManager : MonoBehaviour
     void Start()
     {
        
-        dialogueManager = GetComponent<DialogueManager>();
         ChangePlayerState(13, 5, 1);
         //playerStates = States.playerStates.Bad;
         NPCsDialogue();
@@ -55,6 +53,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Good;
                     heroPointsTotal = 5;
                     villanPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el primer capítulo como heróe");
                 }
                 else if(villanPoints >heroPoints && villanPoints >= 10 )
@@ -62,6 +61,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Bad;
                     villanPointsTotal = 5;
                     heroPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el primer capítulo como villano");
                 }    
             break;
@@ -72,6 +72,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Good;
                     heroPointsTotal = 10;
                     villanPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el segundo capítulo como heróe");
                 }
                 else if(villanPoints> heroPoints && villanPoints >= 20)
@@ -79,6 +80,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Bad;
                     villanPointsTotal = 10;
                     heroPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el segundo capítulo como villano");
                 }
             break;
@@ -89,6 +91,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Good;
                     heroPointsTotal = 15;
                     villanPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el tercer capítulo como heróe");
                 }
                 else if(villanPoints > heroPoints && villanPoints >= 30)
@@ -96,6 +99,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Bad;
                     villanPointsTotal = 15;
                     heroPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el tercer capítulo como villano");
                 }
             break;
@@ -106,6 +110,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Good;
                     heroPointsTotal = 20;
                     villanPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el cuarto capítulo como heróe");
                 }
                 else if(villanPoints > heroPoints && villanPoints >= 40)
@@ -113,6 +118,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Bad;
                     villanPointsTotal =20;
                     heroPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el cuarto capítulo como villano");
                 }
             break;
@@ -123,6 +129,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Good;
                     heroPointsTotal = 25;
                     villanPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el quinto capítulo como heróe");
                 }
                 else if(villanPoints > heroPoints && villanPoints >= 50)
@@ -130,6 +137,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Bad;
                     villanPointsTotal = 25;
                     heroPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el quinto capítulo como villano");
                 }
             break;
@@ -140,6 +148,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Good;
                     heroPointsTotal = 30;
                     villanPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el sexto capítulo como heróe");
                 }
                 else if(villanPoints > heroPoints && villanPoints >=60)
@@ -147,6 +156,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Bad;
                     villanPointsTotal = 30;
                     heroPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el sexto capítulo como villano");
                 }
             break;
@@ -157,6 +167,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Good;
                     heroPointsTotal = 35;
                     villanPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el septimo capítulo como heróe");
                 }
                 else if(villanPoints > heroPoints && villanPoints >= 70)
@@ -164,6 +175,7 @@ public class NarrativeManager : MonoBehaviour
                     playerStates = States.playerStates.Bad;
                     villanPointsTotal = 35;
                     heroPointsTotal = 0;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el septimo capítulo como villano");
                 }
             break;
@@ -172,11 +184,13 @@ public class NarrativeManager : MonoBehaviour
                 if(heroPoints > villanPoints && heroPoints >= 80)
                 {
                     playerStates = States.playerStates.Good;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el octavo capítulo como heróe");
                 }
                 else if(villanPoints > heroPoints && villanPoints >= 80)
                 {
                     playerStates = States.playerStates.Bad;
+                    StageSystem.Instance.NextPhase();
                     Debug.Log("Se termino el octavo capítulo como villano");
                 }
             break;
@@ -233,7 +247,7 @@ public class NarrativeManager : MonoBehaviour
     /// <param name="DialoguesTypes"></param>
    public void ReadDialogue(TextAsset DialoguesList, int DialoguesTypes)
    {
-        dialogueManager.ReadCSV(DialoguesList, DialoguesTypes);
+        DialogueManager.Instance.ReadCSV(DialoguesList, DialoguesTypes);
    }
 
    /// <summary>
@@ -243,7 +257,7 @@ public class NarrativeManager : MonoBehaviour
    /// <param name="dialogueState"></param>
    public void ShowHistoryDialogue(int level , States.playerStates dialogueState)
    {
-        dialogueManager.ShowDialogue(level, dialogueState);
+        DialogueManager.Instance.ShowDialogue(level, dialogueState);
         ShowIcon(playerStates);
    }
 
@@ -254,7 +268,7 @@ public class NarrativeManager : MonoBehaviour
     /// <param name="actionType"></param>
     public void ShowInteractionsDialogue(int level, Action.playerActions actionType)
     {
-        dialogueManager.ShowDialogue(level , actionType);
+        DialogueManager.Instance.ShowDialogue(level , actionType);
     }
 
     /// <summary>
@@ -262,7 +276,7 @@ public class NarrativeManager : MonoBehaviour
     /// </summary>
     public void NPCsDialogue()
     {
-        dialogueManager.ShowDialogue(1);
+        DialogueManager.Instance.ShowDialogue(1);
     }
 
     /// <summary>

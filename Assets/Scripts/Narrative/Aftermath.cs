@@ -4,7 +4,6 @@ public class Aftermath : MonoBehaviour
 {
     [SerializeField] private States.playerStates PlayerStatus;
     [SerializeField] private int HistoryLevel;
-    [SerializeField] private string NarrativeDialogue;
 
 
     // Start is called before the first frame update
