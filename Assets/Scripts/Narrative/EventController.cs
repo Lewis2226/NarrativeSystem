@@ -118,10 +118,10 @@ public class EventController : MonoBehaviour
     /// <param name="dilaogueType"></param>
     /// <param name="dialogueID"></param>
     /// <param name="dialogueState"></param>
-    public void ShowEvent(int eventId, int dilaogueType, int dialogueID, States.playerStates dialogueState)
+    public void ShowEvent(int eventId, int dilaogueType, int level, States.playerStates dialogueState)
     {
-        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
-        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(dialogueID, dialogueState));
+        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventDialogues, dilaogueType);
+        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, dialogueState));
 
     }
 
@@ -134,8 +134,10 @@ public class EventController : MonoBehaviour
     /// <param name="dialogueAction"></param>
     public void ShowEvent(int eventId, int dilaogueType, int level, Action.playerActions dialogueAction)
     {
-        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
+        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventDialogues, dilaogueType);
+        Debug.Log("A");
         DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, dialogueAction));
+        Debug.Log("B");
 
     }
 
@@ -147,7 +149,7 @@ public class EventController : MonoBehaviour
     /// <param name="dialogueID"></param>
     public void ShowEvent(int eventId, int dilaogueType, int dialogueID)
     {
-        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventdialogues, dilaogueType);
+        DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventDialogues, dilaogueType);
         DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(dialogueID));
 
     }

@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c941f487fc186c4e814b37b833fce92, type: 3}
   m_Name: Event 1
   m_EditorClassIdentifier: 
-  eventId: 0
+  eventId: 1
+  stage: 1
   eventName: 
-  moral: 2
+  moral: 0
+  actionToComplete: 0
   duration: 0
-  status: 0
+  failed: 0
   completed: 0
-  eventdialogues: {fileID: 0}
+  eventDialogues: {fileID: 4900000, guid: 246652b88f85d114d8ba868e9156a633, type: 3}

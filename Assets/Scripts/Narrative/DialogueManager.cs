@@ -73,7 +73,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
 
-        StartCoroutine(Typewriter(ShowDialogueSequences(1)));
+
 
     }
 

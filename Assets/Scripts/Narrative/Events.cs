@@ -12,6 +12,6 @@ public class Events : ScriptableObject
     public int duration;
     public bool failed;
     public bool completed;
-    public TextAsset eventdialogues;
+    public TextAsset eventDialogues;
 
 }

@@ -31,10 +31,10 @@ public class NarrativeManager : MonoBehaviour
     void Start()
     {
        
-        ChangePlayerState(13, 5, 1);
+        //ChangePlayerState(13, 5, 1);
         //playerStates = States.playerStates.Bad;
-        NPCsDialogue();
-        ChangeWorld(playerStates, 1);
+        //NPCsDialogue();
+        //ChangeWorld(playerStates, 1);
     }
 
     /// <summary>
