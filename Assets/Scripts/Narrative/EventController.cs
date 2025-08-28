@@ -135,10 +135,7 @@ public class EventController : MonoBehaviour
     public void ShowEvent(int eventId, int dilaogueType, int level, Action.playerActions dialogueAction)
     {
         DialogueManager.Instance.ReadCSV(FindEvent(eventId).eventDialogues, dilaogueType);
-        Debug.Log("A");
         DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, dialogueAction));
-        Debug.Log("B");
-
     }
 
     /// <summary>
