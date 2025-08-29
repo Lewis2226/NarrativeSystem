@@ -33,11 +33,12 @@ public class StageSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (StageCheck())
         {
             Debug.Log("Se completo la etapa");
         }
-        
+        */
     }
 
     /// <summary>

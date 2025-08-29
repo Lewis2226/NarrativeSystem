@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventId: 1
   stage: 1
-  eventName: 
+  eventName: prueba
   moral: 0
   actionToComplete: 0
   duration: 0

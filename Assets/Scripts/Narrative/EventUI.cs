@@ -23,7 +23,7 @@ public class EventUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RefreseUI();
+        Invoke("RefreseUI", 5f);
     }
 
     /// <summary>
