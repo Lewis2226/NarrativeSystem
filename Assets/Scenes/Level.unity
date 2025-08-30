@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1975862995}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: NextDialogueSequence
         m_Mode: 1
@@ -14448,7 +14448,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1975862995}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: SkipDialogueSequence
         m_Mode: 1
@@ -44394,7 +44394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCEvent: 1
-  action: 0
+  action: 1
   dialgueCanvas: {fileID: 1582695277}
 --- !u!4 &6777968557420022864
 Transform:
