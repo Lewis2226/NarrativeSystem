@@ -457,7 +457,6 @@ public class DialogueManager : MonoBehaviour
             textDialogue.text += letter;
             yield return new WaitForSeconds(typewriterSpeed);
         }
-
         isTyping = false;
     }
 }

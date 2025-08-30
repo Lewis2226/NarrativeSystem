@@ -224,8 +224,8 @@ Transform:
   m_GameObject: {fileID: 11404025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.06, y: -3.21, z: 6.0315094}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.06, y: -3.63, z: 6.0315094}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1351013255}
@@ -7703,7 +7703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40.19183, y: 2.7528}
+  m_AnchoredPosition: {x: -25, y: 2.7528}
   m_SizeDelta: {x: 536.0068, y: 97.1712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699665079
@@ -43009,7 +43009,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.801112, y: -4.4, z: 5.9016466}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1295142338655761200}
@@ -44373,6 +44373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6146416746151798914}
   - component: {fileID: 264685037652161272}
+  - component: {fileID: 6775566527393673785}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -44380,6 +44381,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6775566527393673785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775566527393673784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ecea1942152b842818bee9ed8c6c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCEvent: 1
+  action: 0
+  dialgueCanvas: {fileID: 1582695277}
 --- !u!4 &6777968557420022864
 Transform:
   m_ObjectHideFlags: 0

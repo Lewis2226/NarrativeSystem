@@ -257,7 +257,7 @@ public class NarrativeManager : MonoBehaviour
    /// <param name="dialogueState"></param>
    public void ShowHistoryDialogue(int level , States.playerStates dialogueState)
    {
-        DialogueManager.Instance.ShowDialogue(level, dialogueState);
+        StartCoroutine(DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, dialogueState)));
         ShowIcon(playerStates);
    }
 
@@ -268,7 +268,8 @@ public class NarrativeManager : MonoBehaviour
     /// <param name="actionType"></param>
     public void ShowInteractionsDialogue(int level, Action.playerActions actionType)
     {
-        DialogueManager.Instance.ShowDialogue(level , actionType);
+        StartCoroutine(DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, actionType)));
+        
     }
 
     /// <summary>
