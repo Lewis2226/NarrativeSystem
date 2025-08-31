@@ -47,6 +47,7 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueNPCs> dialoguesNPCs;
     public List<DialogueSequences> dialoguesSequence;
     public TextAsset dialoguesNPcs;
+    public TextAsset dialoguesInterractions;
     public TextMeshProUGUI textDialogue;
     [SerializeField] private float typewriterSpeed = 0.2f;
     private int currentDialogueID = 1;
@@ -72,9 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-
-
-
+        ReadCSV(dialoguesInterractions, 2);
     }
 
     /// <summary>
@@ -116,7 +115,6 @@ public class DialogueManager : MonoBehaviour
                     dialogue.killDialogue = data[3];
                     dialogue.lieDialogue = data[4];
                     dialoguesInteraction.Add(dialogue);
-
                     
                 }
                 break;
@@ -209,7 +207,7 @@ public class DialogueManager : MonoBehaviour
                 case Action.playerActions.Save:
                     return dialogue.saveDialogue;
 
-                case Action.playerActions.Truth: 
+                case Action.playerActions.Truth:
                     return dialogue.truthDialogue;
 
                 case Action.playerActions.Kill:
@@ -440,6 +438,16 @@ public class DialogueManager : MonoBehaviour
     {
         string dialogueToShow = GetDialogueSequence(DialogueID);
         return dialogueToShow; 
+    }
+
+    /// <summary>
+    /// Vacia la lista de diálogos de las interraciones y los sequenciales.
+    /// </summary>
+    public void ClearDialogueLists()
+    {
+        dialoguesInteraction.Clear();
+        dialoguesSequence.Clear();
+
     }
 
     /// <summary>

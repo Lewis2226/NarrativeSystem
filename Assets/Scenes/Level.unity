@@ -1396,7 +1396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &148210399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3671,7 +3671,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &382401971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3700,7 +3700,7 @@ MonoBehaviour:
   PlayerState: 0
   GoodPoints: 0
   BadPoints: 0
-  EventChoosen: 
+  EventChoosen: 0
 --- !u!4 &382401973
 Transform:
   m_ObjectHideFlags: 0
@@ -3755,7 +3755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77f0b98a8247154388ad7b32684f2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNarrativeLevel: 0
+  currentNarrativeLevel: 1
   actionscolors:
   - {r: 0, g: 0.9073796, b: 1, a: 1}
   - {r: 0.43164828, g: 0.64146596, b: 0.9433962, a: 1}
@@ -9612,7 +9612,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &799505436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22383,6 +22383,7 @@ MonoBehaviour:
   dialoguesNPCs: []
   dialoguesSequence: []
   dialoguesNPcs: {fileID: 4900000, guid: 822624ecddafd9a4481fe6b47692d1cd, type: 3}
+  dialoguesInterractions: {fileID: 4900000, guid: 246652b88f85d114d8ba868e9156a633, type: 3}
   textDialogue: {fileID: 699665079}
   typewriterSpeed: 0.2
 --- !u!4 &1975862996

@@ -6,7 +6,7 @@ public class HeroOrVillain : MonoBehaviour
    [SerializeField] private States.playerStates PlayerState;
    [SerializeField] private int GoodPoints;
    [SerializeField] private int BadPoints;
-   [SerializeField] private string EventChoosen;
+   [SerializeField] private int EventChoosen;
    
 
     void Start()

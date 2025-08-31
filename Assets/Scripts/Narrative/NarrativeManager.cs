@@ -12,6 +12,7 @@ public class NarrativeManager : MonoBehaviour
     public Color[] actionscolors = new Color[4];
     public Image StatusIcon;
     public Image ActionsIcon;
+    public TextAsset dialogueTest;
     
     public static NarrativeManager Instance { get; private set; }
 
@@ -30,7 +31,7 @@ public class NarrativeManager : MonoBehaviour
 
     void Start()
     {
-       
+
         //ChangePlayerState(13, 5, 1);
         //playerStates = States.playerStates.Bad;
         //NPCsDialogue();
@@ -231,6 +232,28 @@ public class NarrativeManager : MonoBehaviour
                   Debug.Log("El mundo cambio por ser malo");
                 }
             break;
+
+            case 2:
+                if (playerState == States.playerStates.Good)
+                {
+                    Debug.Log("El mundo cambio por ser bueno");
+                }
+                else if (playerState == States.playerStates.Bad)
+                {
+                    Debug.Log("El mundo cambio por ser malo");
+                }
+                break;
+
+            case 3:
+                if (playerState == States.playerStates.Good)
+                {
+                    Debug.Log("El mundo cambio por ser bueno");
+                }
+                else if (playerState == States.playerStates.Bad)
+                {
+                    Debug.Log("El mundo cambio por ser malo");
+                }
+                break;
 
             default:
                 Debug.Log("No se encuentra ese nivel Narrativo");
