@@ -41,8 +41,15 @@ public class EventUI : MonoBehaviour
             foreach( Events events in EventController.Instance.activedEvents)
             {
                 GameObject newEvent = Instantiate(eventPanelPrefab, contentPanel);
-                TMP_Text text = newEvent.GetComponent<TMP_Text>();
-                text.text = events.name;
+                TextMeshProUGUI text = newEvent.GetComponentInChildren<TextMeshProUGUI>();
+                if(text != null)
+                {
+                    text.text = events.eventName;
+                }
+                else
+                {
+                    Debug.Log("No se encontro el Text Mesh Pro");
+                }
             }
         }
     }
