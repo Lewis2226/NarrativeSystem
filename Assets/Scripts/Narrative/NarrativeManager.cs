@@ -287,6 +287,7 @@ public class NarrativeManager : MonoBehaviour
     public void ShowInteractionsDialogue(int level, Action.playerActions actionType)
     {
         StartCoroutine(DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, actionType)));
+        ShowIcon(actionType);
         
     }
 
