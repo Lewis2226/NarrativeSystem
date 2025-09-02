@@ -33,12 +33,7 @@ public class StageSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (StageCheck())
-        {
-            Debug.Log("Se completo la etapa");
-        }
-        */
+        
     }
 
     /// <summary>
@@ -111,7 +106,7 @@ public class StageSystem : MonoBehaviour
     /// <param name="Phase"></param>
     /// <param name="maxphase"></param>
     /// <param name="StageName"></param>
-    void SetStage(int Phase, int maxphase, string StageName)
+    private void SetStage(int Phase, int maxphase, string StageName)
     {
         currentPhase = Phase;
         maxPhase = maxphase;
@@ -132,15 +127,15 @@ public class StageSystem : MonoBehaviour
     /// Agrega eventos a la lista de eventos. 
     /// </summary>
     /// <returns></returns>
-    public List<Events> AddEvents()
+    public void AddEvents()
     {
         List<Events> list = new List<Events>();
         list = GameStages[currentStage].toAdd;
-        return list;
+        EventController.Instance.AddEvent(list);
     }
 
     /// <summary>
-    /// Muestra los evenots de interacciones.
+    /// Muestra los eventos de interacciones.
     /// </summary>
     /// <param name="eventId"></param>
     /// <param name="dilaogueType"></param>

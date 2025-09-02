@@ -66,7 +66,7 @@ public class EventController : MonoBehaviour
     }
 
     /// <summary>
-    /// Revisa los eventos para determinar si se completraon o se fallaron.
+    /// Revisa los eventos para determinar si se completaron o se fallaron.
     /// </summary>
     /// <param name="playerStates"></param>
     /// <param name="ActionUse"></param>

@@ -20,16 +20,10 @@ public class EventUI : MonoBehaviour
     }
    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Invoke("RefreseUI", 5f);
-    }
-
     /// <summary>
     /// Actualiza la lista de eventos que se muestran en el UI
     /// </summary>
-    public void RefreseUI()
+    public void RefreshUI()
     {
         foreach (Transform child in contentPanel)
         {

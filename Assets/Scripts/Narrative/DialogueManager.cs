@@ -47,7 +47,6 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueNPCs> dialoguesNPCs;
     public List<DialogueSequences> dialoguesSequence;
     public TextAsset dialoguesNPcs;
-    public TextAsset dialoguesInterractions;
     public TextMeshProUGUI textDialogue;
     [SerializeField] private float typewriterSpeed = 0.2f;
     private int currentDialogueID = 1;
@@ -73,7 +72,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        ReadCSV(dialoguesInterractions, 2);
+
     }
 
     /// <summary>

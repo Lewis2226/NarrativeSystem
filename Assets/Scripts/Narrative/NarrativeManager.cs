@@ -9,10 +9,9 @@ public class NarrativeManager : MonoBehaviour
     private int heroPointsTotal;
     private int villanPointsTotal;
     private int[] actionsPointsTotal = new int[4];
-    public Color[] actionscolors = new Color[4];
+    public Color[] actionsColors = new Color[4];
     public Image StatusIcon;
     public Image ActionsIcon;
-    public TextAsset dialogueTest;
     
     public static NarrativeManager Instance { get; private set; }
 
@@ -32,10 +31,6 @@ public class NarrativeManager : MonoBehaviour
     void Start()
     {
 
-        //ChangePlayerState(13, 5, 1);
-        //playerStates = States.playerStates.Bad;
-        //NPCsDialogue();
-        //ChangeWorld(playerStates, 1);
     }
 
     /// <summary>
@@ -298,9 +293,9 @@ public class NarrativeManager : MonoBehaviour
     /// <summary>
     /// Muestra los dialogos de los NPCs.
     /// </summary>
-    public void NPCsDialogue()
+    public void NPCsDialogue(int level)
     {
-        DialogueManager.Instance.ShowDialogue(1);
+        DialogueManager.Instance.ShowDialogue(level);
     }
 
     /// <summary>
@@ -333,19 +328,19 @@ public class NarrativeManager : MonoBehaviour
         switch (ActionUse)
         {
             case Action.playerActions.Save:
-                ActionsIcon.color = actionscolors[0];
+                ActionsIcon.color = actionsColors[0];
                 break;
 
             case Action.playerActions.Truth:
-                ActionsIcon.color = actionscolors[1];
+                ActionsIcon.color = actionsColors[1];
                 break;
 
             case Action.playerActions.Kill:
-                ActionsIcon.color = actionscolors[2];
+                ActionsIcon.color = actionsColors[2];
                 break;
 
             case Action.playerActions.Lie:
-                ActionsIcon.color = actionscolors[3];
+                ActionsIcon.color = actionsColors[3];
                 break;
 
             default:
