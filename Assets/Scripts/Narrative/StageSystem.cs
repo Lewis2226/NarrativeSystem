@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class StageSystem : MonoBehaviour
 {
+    [Tooltip("Lista de etapas de juego, debe al menos 1")]
     public Stages[] GameStages;
+    [Tooltip("Indica que en etapa de juego se encuetra, esta inicia en 1")]
     int currentStage = 0;
     private int maxPhase;
     private int currentPhase;
@@ -30,11 +32,7 @@ public class StageSystem : MonoBehaviour
         SetStage(currentStage, GameStages[currentStage].phases, GameStages[currentStage].name);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     /// <summary>
     /// Revisa el estado de la etapa.
@@ -44,7 +42,7 @@ public class StageSystem : MonoBehaviour
     /// </returns>
     bool StageCheck()
     {
-        return GameStages[currentStage].completed;
+        return GameStages[currentStage].GetComplete();
     }
 
     /// <summary>
@@ -75,7 +73,7 @@ public class StageSystem : MonoBehaviour
 
         if (currentPhase == maxPhase)
         {
-            GameStages[currentStage].completed = true;
+            GameStages[currentStage].SetComplete(true);
             WayofComplete(playerState);
         }
     }

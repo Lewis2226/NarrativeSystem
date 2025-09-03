@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Interactions : MonoBehaviour
 {
-    
+    [Tooltip("La acción usada por el jugador en las interraciones con los NPCs")]
     public Action.playerActions actionUse;
     private States.playerStates playerState;
 

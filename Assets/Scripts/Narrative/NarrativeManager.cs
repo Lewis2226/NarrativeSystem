@@ -9,8 +9,11 @@ public class NarrativeManager : MonoBehaviour
     private int heroPointsTotal;
     private int villanPointsTotal;
     private int[] actionsPointsTotal = new int[4];
+    [Tooltip("Arreglo de colores de las acciones, debe tener alpha")]
     public Color[] actionsColors = new Color[4];
+    [Tooltip("Imagen que muestra el estado del jugador, toma en cuenta el estado que se uso anteriormente por el jugador")]
     public Image StatusIcon;
+    [Tooltip("Imagen que muestra la acción del jugador, toma en cuenta la accion que se usao anteriormente por el jugador")]
     public Image ActionsIcon;
     
     public static NarrativeManager Instance { get; private set; }

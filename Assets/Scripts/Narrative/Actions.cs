@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Actions : MonoBehaviour
 {
+    [Tooltip("El puntaje que se da para la acción usada")]
     public int scoreToGive;
 
     

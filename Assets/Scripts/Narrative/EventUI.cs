@@ -3,7 +3,9 @@ using TMPro;
 
 public class EventUI : MonoBehaviour
 {
+    [Tooltip("Es necesario tener un canvas, donde se tenga un gameObject como contenedor.")]
     public Transform contentPanel;
+    [Tooltip("Es necesario que este tengo un Text Mesh Pro como componete hijo.")]
     public GameObject eventPanelPrefab;
     public EventUI Instance { get; private set; }
 

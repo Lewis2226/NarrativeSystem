@@ -42,11 +42,17 @@ public class DialogueSequences
 
 public class DialogueManager : MonoBehaviour
 {
+    [Tooltip("Lista de los diálogos narrativos, no es necsario agregar nada está se llena automáticamente")]
     public List<HistoryDialogue> dialoguesHistory;
+    [Tooltip("Lista de los diálogos de interacción, no es necsario agregar nada está se llena automáticamente")]
     public List<DialogueInteraction> dialoguesInteraction;
+    [Tooltip("Lista de los diálogos de los NPCs, no es necsario agregar nada está se llena automáticamente")]
     public List<DialogueNPCs> dialoguesNPCs;
+    [Tooltip("Lista de los diálogos de sequecuenciales, no es necsario agregar nada esta se llena automáticamente")]
     public List<DialogueSequences> dialoguesSequence;
+    [Tooltip("Csv para los diálogos de los NPCs")]
     public TextAsset dialoguesNPcs;
+    [Tooltip("text Mesh Pro para mostrar los diálogos en pantalla, el unico tipo de diálogos no se muestra son los de los NPCs")]
     public TextMeshProUGUI textDialogue;
     [SerializeField] private float typewriterSpeed = 0.2f;
     private int currentDialogueID = 1;

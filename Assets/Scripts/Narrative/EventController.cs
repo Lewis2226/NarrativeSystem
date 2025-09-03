@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EventController : MonoBehaviour
 {
+    [Tooltip("Liata de los eventos activados, es necesario tener al menos 1 para funcionar")]
     public List<Events> activedEvents = new List<Events>();
     public static EventController Instance { get; private set; }
 
@@ -58,7 +59,7 @@ public class EventController : MonoBehaviour
     {
         foreach (Events e in activedEvents)
         {
-            if(e.failed == true || e.completed == true)
+            if(e.GetFailed() == true || e.GetCompleted() == true)
             {
                 activedEvents.Remove(e);
             }
@@ -74,11 +75,11 @@ public class EventController : MonoBehaviour
     {
         foreach(Events e in activedEvents)
         {
-            if(e.failed == true && e.moral != playerStates) 
+            if(e.GetFailed() == true && e.moral != playerStates) 
             {
                 RemoveEvent();
             }
-            else if (e.completed == true) { }
+            else if (e.GetCompleted() == true) { }
             {
                 RemoveEvent();
             }
@@ -91,7 +92,7 @@ public class EventController : MonoBehaviour
     /// <param name="eventFailed"></param>
     public void Setfailed(Events eventFailed)
     {
-       FindEvent(eventFailed.eventId).failed = true;
+       FindEvent(eventFailed.eventId).SetFail(true);
     }
 
     /// <summary>
@@ -103,11 +104,11 @@ public class EventController : MonoBehaviour
     {
         if (FindEvent(id).actionToComplete == ActionUse)
         {
-            FindEvent(id).completed = true;
+            FindEvent(id).SetCompleted(true);
         }
         else
         {
-            FindEvent(id).failed = true;
+            FindEvent(id).SetFail(true);
         }
     }
 
