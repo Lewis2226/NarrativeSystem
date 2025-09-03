@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EventController : MonoBehaviour
 {
-    [Tooltip("Liata de los eventos activados, es necesario tener al menos 1 para funcionar")]
+    [Tooltip("Lista de los eventos activados, es necesario tener al menos 1 para funcionar")]
     public List<Events> activedEvents = new List<Events>();
     public static EventController Instance { get; private set; }
 
