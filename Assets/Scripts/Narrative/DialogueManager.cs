@@ -79,7 +79,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        ReadCSV(test, 2);
         ReadCSV(dialoguesNPcs, 3);
         GetDialogueInteraction(1, Action.playerActions.Save);
         GetDialogueInteraction(1, Action.playerActions.Truth);
