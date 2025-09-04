@@ -149,8 +149,8 @@ MonoBehaviour:
   NPC: {fileID: 0}
   agent: {fileID: 0}
   target: {fileID: 0}
-  speed: 3
-  rotationspeed: 180
+  speed: 2
+  rotationspeed: 1
   accuracy: 3
 --- !u!1107 &5207210164694964096
 AnimatorStateMachine:
@@ -195,6 +195,6 @@ MonoBehaviour:
   NPC: {fileID: 0}
   agent: {fileID: 0}
   target: {fileID: 0}
-  speed: 1.5
-  rotationspeed: 180
-  accuracy: 0.5
+  speed: 2
+  rotationspeed: 1
+  accuracy: 3
