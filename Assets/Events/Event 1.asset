@@ -18,6 +18,4 @@ MonoBehaviour:
   moral: 0
   actionToComplete: 0
   duration: 0
-  failed: 0
-  completed: 0
-  eventDialogues: {fileID: 4900000, guid: 246652b88f85d114d8ba868e9156a633, type: 3}
+  eventDialogues: {fileID: 4900000, guid: 8e91a059668f00e4a9dde0ed2a2f4c42, type: 3}

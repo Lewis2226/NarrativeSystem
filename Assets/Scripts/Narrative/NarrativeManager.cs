@@ -16,6 +16,7 @@ public class NarrativeManager : MonoBehaviour
     [Tooltip("Imagen que muestra la acción del jugador, toma en cuenta la accion que se usao anteriormente por el jugador")]
     public Image ActionsIcon;
     
+    
     public static NarrativeManager Instance { get; private set; }
 
     private void Awake()

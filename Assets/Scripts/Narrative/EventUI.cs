@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.PlayerLoop;
 
 public class EventUI : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class EventUI : MonoBehaviour
     public Transform contentPanel;
     [Tooltip("Es necesario que este tengo un Text Mesh Pro como componete hijo.")]
     public GameObject eventPanelPrefab;
+    public GameObject eventPanel;
+
+
     public EventUI Instance { get; private set; }
 
    public void Awake()
@@ -22,6 +26,14 @@ public class EventUI : MonoBehaviour
     }
    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            RefreshUI();
+        }
+    }
+
     /// <summary>
     /// Actualiza la lista de eventos que se muestran en el UI
     /// </summary>
@@ -32,6 +44,7 @@ public class EventUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        eventPanel.SetActive(true);
         if (EventController.Instance.activedEvents != null)
         {
             foreach( Events events in EventController.Instance.activedEvents)

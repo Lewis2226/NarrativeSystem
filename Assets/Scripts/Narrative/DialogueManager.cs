@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-
+        ReadCSV(dialoguesNPcs, 3);
     }
 
     /// <summary>
