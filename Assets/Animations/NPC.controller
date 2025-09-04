@@ -1,18 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-5571905385384947411
+--- !u!1102 &-6798330698641818807
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chase
+  m_Name: Capoeira
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours:
-  - {fileID: 5036473137282391477}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -21,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 82070772e49672a498a883ec435b65b4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0280af481a68cf449a7d9fe66a4d53da, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -38,8 +37,12 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
+<<<<<<< HEAD
   m_StateMachineBehaviours:
   - {fileID: 4440421249816032959}
+=======
+  m_StateMachineBehaviours: []
+>>>>>>> parent of 8037bf3 (Pruebas de FSM)
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -62,19 +65,7 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: NPC
   serializedVersion: 5
-  m_AnimatorParameters:
-  - m_Name: waiting
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: distance
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+  m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -88,6 +79,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD
 --- !u!1102 &4073922892083420834
 AnimatorState:
   serializedVersion: 6
@@ -152,6 +144,8 @@ MonoBehaviour:
   speed: 2
   rotationspeed: 1
   accuracy: 3
+=======
+>>>>>>> parent of 8037bf3 (Pruebas de FSM)
 --- !u!1107 &5207210164694964096
 AnimatorStateMachine:
   serializedVersion: 6
@@ -162,14 +156,11 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
+    m_State: {fileID: -6798330698641818807}
+    m_Position: {x: 350, y: 240, z: 0}
+  - serializedVersion: 1
     m_State: {fileID: -3224167263986094689}
     m_Position: {x: 350, y: 140, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 4073922892083420834}
-    m_Position: {x: 350, y: 270, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -5571905385384947411}
-    m_Position: {x: 630, y: 210, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -180,21 +171,3 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -3224167263986094689}
---- !u!114 &6596657159622837658
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed15d653cd9680f4a99a9ebd521cd323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPC: {fileID: 0}
-  agent: {fileID: 0}
-  target: {fileID: 0}
-  speed: 2
-  rotationspeed: 1
-  accuracy: 3
