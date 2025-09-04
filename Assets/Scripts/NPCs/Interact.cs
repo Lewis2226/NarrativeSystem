@@ -14,11 +14,7 @@ public class Interact : MonoBehaviour
 
     private void Start()
     {
-        DialogueManager.Instance.ReadCSV(dialogueNarrative, 1);
-        DialogueManager.Instance.ReadCSV(dialogueSequences, 4);
-        DialogueManager.Instance.ShowDialogue(1, States.playerStates.Good);
-        NarrativeManager.Instance.NPCsDialogue(3);
-        DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogueSequences(1));
+        
     }
 
     // Update is called once per frame

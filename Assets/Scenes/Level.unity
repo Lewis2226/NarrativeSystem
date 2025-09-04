@@ -24242,6 +24242,10 @@ PrefabInstance:
       propertyPath: textDialogue
       value: 
       objectReference: {fileID: 699665079}
+    - target: {fileID: 6867768408466211311, guid: 662608fc0f8a0344db58504e820295cd, type: 3}
+      propertyPath: dialoguesNPcs
+      value: 
+      objectReference: {fileID: 4900000, guid: 457ab5c7a4b3d0d4e857675a25f3ce44, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
