@@ -59,6 +59,7 @@ public class DialogueManager : MonoBehaviour
     private string currentDialogue;
     private bool isTyping = false;
     private bool canSkip = false;
+    public TextAsset test;
 
     public static DialogueManager Instance { get; private set; }
 
@@ -78,7 +79,12 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-
+        ReadCSV(test, 2);
+        ReadCSV(dialoguesNPcs, 3);
+        GetDialogueInteraction(1, Action.playerActions.Save);
+        GetDialogueInteraction(1, Action.playerActions.Truth);
+        GetDialogueInteraction(1, Action.playerActions.Kill);
+        GetDialogueInteraction(1, Action.playerActions.Lie);
     }
 
     /// <summary>
@@ -210,15 +216,19 @@ public class DialogueManager : MonoBehaviour
             switch (actionstype)
             {
                 case Action.playerActions.Save:
+                    Debug.Log(dialogue.saveDialogue);
                     return dialogue.saveDialogue;
 
                 case Action.playerActions.Truth:
+                    Debug.Log(dialogue.truthDialogue);
                     return dialogue.truthDialogue;
 
                 case Action.playerActions.Kill:
+                    Debug.Log(dialogue.killDialogue);
                     return dialogue.killDialogue;
 
                 case Action.playerActions.Lie:
+                    Debug.Log(dialogue.lieDialogue);
                     return dialogue.lieDialogue;
 
                 default:
@@ -234,6 +244,7 @@ public class DialogueManager : MonoBehaviour
             switch (actionstype)
             {
                 case Action.playerActions.Save:
+                    Debug.Log(dialogue.saveDialogue);
                     return dialogue.saveDialogue;
 
                 case Action.playerActions.Truth:
@@ -261,12 +272,15 @@ public class DialogueManager : MonoBehaviour
                     return dialogue.saveDialogue;
 
                 case Action.playerActions.Truth:
+                    Debug.Log(dialogue.truthDialogue);
                     return dialogue.truthDialogue;
 
                 case Action.playerActions.Kill:
+                    Debug.Log(dialogue.killDialogue);
                     return dialogue.killDialogue;
 
                 case Action.playerActions.Lie:
+                    Debug.Log(dialogue.lieDialogue);
                     return dialogue.lieDialogue;
 
                 default:
@@ -282,15 +296,19 @@ public class DialogueManager : MonoBehaviour
             switch (actionstype)
             {
                 case Action.playerActions.Save:
+                    Debug.Log(dialogue.saveDialogue);
                     return dialogue.saveDialogue;
 
                 case Action.playerActions.Truth:
+                    Debug.Log(dialogue.truthDialogue);
                     return dialogue.truthDialogue;
 
                 case Action.playerActions.Kill:
+                    Debug.Log(dialogue.killDialogue);
                     return dialogue.killDialogue;
 
                 case Action.playerActions.Lie:
+                    Debug.Log(dialogue.lieDialogue);
                     return dialogue.lieDialogue;
 
                 default:
@@ -321,12 +339,15 @@ public class DialogueManager : MonoBehaviour
         switch (GameLevel) 
         {
             case 1: //dialogos del incio del juego
+                Debug.Log(dialogue.StartDialogue);
                 return  dialogue.StartDialogue;
 
             case 2: //dialogos de la mitad del juego
+                Debug.Log(dialogue.MidDialogue);
                 return  dialogue.MidDialogue;
                 
             case 3: //dialogos del final del juego
+                Debug.Log(dialogue.EndDialogue);
                 return dialogue.EndDialogue;
 
             default:
