@@ -2720,6 +2720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage System
       objectReference: {fileID: 0}
+    - target: {fileID: 6808602297112445714, guid: 161be8f89e156c24695f97456df6fb57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6986843884824952220, guid: 161be8f89e156c24695f97456df6fb57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4678,6 +4682,10 @@ PrefabInstance:
     - target: {fileID: 5911986680149053490, guid: b0159abf31958a54e8a6aa7d84a6d288, type: 3}
       propertyPath: m_Name
       value: EventController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911986680149053490, guid: b0159abf31958a54e8a6aa7d84a6d288, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7496850848815277522, guid: b0159abf31958a54e8a6aa7d84a6d288, type: 3}
       propertyPath: contentPanel

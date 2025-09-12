@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageName: "Ma\xF1ana"
   phases: 2
-  completed: 1
   stateHowCompleted: 0
-  toAdd: []
+  toAdd:
+  - {fileID: 11400000, guid: ff31137aa38e4c94abe7efdffddf5a4b, type: 2}

@@ -17,5 +17,5 @@ MonoBehaviour:
   eventName: Prueba
   moral: 0
   actionToComplete: 0
-  duration: 0
+  duration: 1
   eventDialogues: {fileID: 4900000, guid: 8e91a059668f00e4a9dde0ed2a2f4c42, type: 3}
