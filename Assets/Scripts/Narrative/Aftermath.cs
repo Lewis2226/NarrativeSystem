@@ -10,7 +10,7 @@ public class Aftermath : MonoBehaviour
     void Start()
     {
 
-        ShowNarrativeDialogue();
+        
     }
 
     /// <summary>

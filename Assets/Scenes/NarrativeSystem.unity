@@ -4061,6 +4061,10 @@ PrefabInstance:
       propertyPath: actionsColors.Array.data[3].r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5511351374044608379, guid: 109f31b9f6400cf46bf3837c0a36b351, type: 3}
+      propertyPath: HistoryLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6853703583946810701, guid: 109f31b9f6400cf46bf3837c0a36b351, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
