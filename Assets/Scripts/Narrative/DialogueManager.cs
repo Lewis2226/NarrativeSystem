@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
     [Tooltip("Lista de los diálogos de sequecuenciales, no es necsario agregar nada esta se llena automáticamente")]
     public List<DialogueSequences> dialoguesSequence;
     [Tooltip("Csv para los diálogos de los NPCs")]
-    public TextAsset dialoguesNPcs;
+    public TextAsset dialoguesTest;
     [Tooltip("text Mesh Pro para mostrar los diálogos en pantalla, el unico tipo de diálogos no se muestra son los de los NPCs")]
     public TextMeshProUGUI textDialogue;
     [SerializeField] private float typewriterSpeed = 0.2f;
@@ -78,8 +78,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        ReadCSV(dialoguesNPcs, 2);
-        StartCoroutine(Typewriter(ShowDialogue(1, Action.playerActions.Save)));
+        ReadCSV(dialoguesTest, 1);
+        StartCoroutine(Typewriter(ShowDialogue(1, States.playerStates.Good)));
 
     }
 
