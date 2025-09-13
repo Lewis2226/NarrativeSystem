@@ -78,7 +78,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        ReadCSV(dialoguesNPcs, 3);
+        ReadCSV(dialoguesNPcs, 2);
+        StartCoroutine(Typewriter(ShowDialogue(1, Action.playerActions.Save)));
+
     }
 
     /// <summary>
@@ -171,8 +173,9 @@ public class DialogueManager : MonoBehaviour
     {
         HistoryDialogue dialogue = dialoguesHistory.Find(d => d.id == id);
 
-        if(dialogue == null)
+        if (dialogue == null)
         {
+            Debug.Log("No hay dialogo");
             return "";
         }
 
@@ -202,11 +205,19 @@ public class DialogueManager : MonoBehaviour
     public string GetDialogueInteraction(int id, Action.playerActions actionstype)
     {
         DialogueInteraction dialogue;
+       
 
         if (id >=1 && id <= 5)
         {
             //Primer nivel
             dialogue = dialoguesInteraction.Find(d => d.id == 1);
+
+            if (dialogue == null)
+            {
+                Debug.Log("No hay dialogo");
+                return "";
+            }
+
             switch (actionstype)
             {
                 case Action.playerActions.Save:
@@ -231,6 +242,13 @@ public class DialogueManager : MonoBehaviour
         {
             //Segundo nivel
             dialogue = dialoguesInteraction.Find(d => d.id == 10);
+
+            if (dialogue == null)
+            {
+                Debug.Log("No hay dialogo");
+                return "";
+            }
+
             switch (actionstype)
             {
                 case Action.playerActions.Save:
@@ -255,6 +273,13 @@ public class DialogueManager : MonoBehaviour
         {
             //Tercer nivel
             dialogue = dialoguesInteraction.Find(d => d.id == 15);
+
+            if (dialogue == null)
+            {
+                Debug.Log("No hay dialogo");
+                return "";
+            }
+
             switch (actionstype)
             {
                 case Action.playerActions.Save:
@@ -279,6 +304,13 @@ public class DialogueManager : MonoBehaviour
         {
             //Cuarto nivel
             dialogue = dialoguesInteraction.Find(d => d.id == 20);
+
+            if (dialogue == null)
+            {
+                Debug.Log("No hay dialogo");
+                return "";
+            }
+
             switch (actionstype)
             {
                 case Action.playerActions.Save:
@@ -317,6 +349,12 @@ public class DialogueManager : MonoBehaviour
     {
         int ramdonID = UnityEngine.Random.Range(1, dialoguesNPCs.Count);
         DialogueNPCs dialogue = dialoguesNPCs.Find(d => d.id == ramdonID);
+
+        if (dialogue == null)
+        {
+            Debug.Log("No hay dialogo");
+            return "";
+        }
 
         switch (GameLevel) 
         {
@@ -456,7 +494,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Corrutina para mostrar los diálogos con si fuera una máquina de escribir.
+    /// Corrutina para mostrar los diálogos con si fuera una máquina de escribir, necesita un string para funcionar.
     /// </summary>
     /// <param name="Dialogue"></param>
     /// <returns>
