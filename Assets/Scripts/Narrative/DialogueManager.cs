@@ -79,7 +79,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         ReadCSV(dialoguesTest, 1);
-        StartCoroutine(Typewriter("Hola, 123"));
+        //StartCoroutine(Typewriter("Hola, 123"));
 
     }
 
