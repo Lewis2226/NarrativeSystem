@@ -79,7 +79,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         ReadCSV(dialoguesTest, 1);
-        StartCoroutine(Typewriter(ShowDialogue(1, States.playerStates.Good)));
+        StartCoroutine(Typewriter("Hola, 123"));
 
     }
 
@@ -175,7 +175,6 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogue == null)
         {
-            Debug.Log("No hay dialogo");
             return "";
         }
 
@@ -214,7 +213,6 @@ public class DialogueManager : MonoBehaviour
 
             if (dialogue == null)
             {
-                Debug.Log("No hay dialogo");
                 return "";
             }
 
@@ -245,7 +243,6 @@ public class DialogueManager : MonoBehaviour
 
             if (dialogue == null)
             {
-                Debug.Log("No hay dialogo");
                 return "";
             }
 
@@ -276,7 +273,6 @@ public class DialogueManager : MonoBehaviour
 
             if (dialogue == null)
             {
-                Debug.Log("No hay dialogo");
                 return "";
             }
 
@@ -307,7 +303,6 @@ public class DialogueManager : MonoBehaviour
 
             if (dialogue == null)
             {
-                Debug.Log("No hay dialogo");
                 return "";
             }
 
@@ -352,7 +347,6 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogue == null)
         {
-            Debug.Log("No hay dialogo");
             return "";
         }
 

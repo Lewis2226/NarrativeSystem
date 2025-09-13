@@ -1753,8 +1753,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 958c0324479f62444a47626a25745b1e, type: 2}
-  m_sharedMaterial: {fileID: -774578321661903656, guid: 958c0324479f62444a47626a25745b1e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2424,6 +2424,10 @@ PrefabInstance:
       propertyPath: dialoguesNPcs
       value: 
       objectReference: {fileID: 4900000, guid: 8856554d993ef6e48bf48c670cbf1832, type: 3}
+    - target: {fileID: 6867768408466211311, guid: 662608fc0f8a0344db58504e820295cd, type: 3}
+      propertyPath: dialoguesTest
+      value: 
+      objectReference: {fileID: 4900000, guid: d565f71a16ba672408912f4c62017d19, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4995,6 +4999,10 @@ PrefabInstance:
     - target: {fileID: 7081595231526096073, guid: 109f31b9f6400cf46bf3837c0a36b351, type: 3}
       propertyPath: m_Name
       value: Narrative Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081595231526096073, guid: 109f31b9f6400cf46bf3837c0a36b351, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
