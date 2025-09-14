@@ -78,8 +78,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        ReadCSV(dialoguesTest, 1);
-        //StartCoroutine(Typewriter("Hola, 123"));
+        ReadCSV(dialoguesTest, 3);
+        textDialogue.text += ShowDialogue(1);
 
     }
 
@@ -353,12 +353,15 @@ public class DialogueManager : MonoBehaviour
         switch (GameLevel) 
         {
             case 1: //dialogos del incio del juego
+                Debug.Log(dialogue.StartDialogue);
                 return  dialogue.StartDialogue;
 
             case 2: //dialogos de la mitad del juego
+                Debug.Log(dialogue.MidDialogue);
                 return  dialogue.MidDialogue;
                 
             case 3: //dialogos del final del juego
+                Debug.Log(dialogue.EndDialogue);
                 return dialogue.EndDialogue;
 
             default:
