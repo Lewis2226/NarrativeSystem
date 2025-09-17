@@ -279,7 +279,6 @@ public class NarrativeManager : MonoBehaviour
    /// <param name="dialogueState"></param>
    public void ShowHistoryDialogue(int level , States.playerStates dialogueState)
    {
-        Debug.Log("A");
         StartCoroutine(DialogueManager.Instance.Typewriter(DialogueManager.Instance.ShowDialogue(level, dialogueState)));
         ShowIcon(playerStates);
    }
